@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Connexion</title>
+    <link rel="stylesheet" href="/css/login.css">
+</head>
+<body>
+	
+<header>
+    <a th:href="@{/index.html}" class= "retour-btn"  >← Retour</a>
+</header>
+
+<div class="login-box">
+
+    <h1>Se connecter</h1>
+
+    <form onsubmit="return handleLogin(event)">
+        
+        <input type="email" id="email" placeholder="E-mail" required>
+
+        <input type="password" id="password" placeholder="Mot de passe">
+
+        <p id="error-msg"></p>
+		<p class = "miniature"> Vous n'avez pas encore de compte? </p><a th:href="@{/register}" >Inscrivez vous ici</a>
+
+        <button id="login-btn" disabled>Se connecter</button>
+
+    </form>
+
+</div>
+<script th:src="@{/js/login.js}"></script>
+</body>
+</html>

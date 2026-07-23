@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>SubPilot - Gérez vos abonnements facilement</title>
+    <link rel="stylesheet" th:href="@{/css/accueil.css}">
+</head>
+<body>
+
+<!-- NAVBAR -->
+<header class="navbar">
+    <div class="logo">SubPilot</div>
+    <nav>
+		<!-- Bouton principal -->
+		<a th:href="@{/login}" class="btn-glow">Se connecter</a>
+
+		<!-- Bouton secondaire -->
+		<a  href="#pricing-section" class="btn-glow">Tarifs</a>
+
+		<!-- Bouton outline -->
+		<a href="#" class="btn-glow">Découvrir</a>
+        <a href="#" class="btn-glow">S'inscrire</a>
+    </nav>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+    <div class="hero-text">
+        <h1>Gérez tous vos abonnements en un seul endroit</h1>
+        <p>Découvrez combien vous dépensez et économisez en quelques secondes.</p>
+        <a href="#" class="btn-glow">Commencer gratuitement</a>
+    </div>
+
+    <div class="hero-image">
+        <img src="https://images.unsplash.com/photo-1551281044-8c4a1c5c7a1b" alt="dashboard">
+    </div>
+</section>
+
+<section id="pricing-section" class="pricing">
+
+    <h2>Choisissez votre plan</h2>
+    <p class="subtitle">Économisez plus chaque mois</p>
+
+    <div class="pricing-grid">
+
+        <!-- BASIC -->
+        <div class="card featured">
+            <h3>Basic</h3>
+            <p class="price">5,99€ <span>/mois</span></p>
+
+            <ul>
+                <li>✔️ 5 abonnements détectés</li>
+                <li>✔️ Vue globale des dépenses</li>
+                <li>✔️ Alertes simples</li>
+                <li>❌ Résiliation rapide</li>
+                <li>❌ Insights avancés</li>
+            </ul>
+
+            <a href="#" class="btn-primary">Essayer gratuitement</a>
+        </div>
+
+        <!-- PRO -->
+        <div class="card featured">
+            <div class="badge">Le plus populaire</div>
+
+            <h3>Pro</h3>
+            <p class="price">12,99€ <span>/mois</span></p>
+
+            <ul>
+                <li>✔️ Abonnements illimités</li>
+                <li>✔️ Détection automatique email</li>
+                <li>✔️ Alertes intelligentes</li>
+                <li>✔️ Résiliation rapide</li>
+                <li>✔️ Optimisation des dépenses</li>
+            </ul>
+
+            <a href="#" class="btn-primary">Essayer gratuitement</a>
+        </div>
+
+        <!-- PREMIUM -->
+        <div class="card featured">
+            <h3>Premium</h3>
+            <p class="price">19,99€ <span>/mois</span></p>
+
+            <ul>
+                <li>✔️ Tout Pro inclus</li>
+                <li>✔️ Analyse avancée des dépenses</li>
+                <li>✔️ Notifications personnalisées</li>
+                <li>✔️ Priorité support</li>
+                <li>✔️ Futures automatisations</li>
+            </ul>
+
+            <a href="#" class="btn-secondary">Passer Premium</a>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- FEATURES -->
+<section class="features">
+    <h2>Pourquoi utiliser SubPilot ?</h2>
+
+    <div class="feature-grid">
+        <div class="feature">
+            <h3>📊 Vision claire</h3>
+            <p>Visualisez vos dépenses mensuelles instantanément.</p>
+        </div>
+
+        <div class="feature">
+            <h3>🔍 Détection automatique</h3>
+            <p>Nous trouvons vos abonnements à partir de vos emails.</p>
+        </div>
+
+        <div class="feature">
+            <h3>⚠️ Alertes intelligentes</h3>
+            <p>Ne payez plus pour des services inutiles.</p>
+        </div>
+
+        <div class="feature">
+            <h3>✂️ Résiliation rapide</h3>
+            <p>Accédez aux liens pour résilier en un clic.</p>
+        </div>
+    </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="steps">
+    <h2>Comment ça marche</h2>
+
+    <div class="step-grid">
+        <div class="step">
+            <span>1</span>
+            <p>Connectez votre email</p>
+        </div>
+
+        <div class="step">
+            <span>2</span>
+            <p>Nous analysons vos abonnements</p>
+        </div>
+
+        <div class="step">
+            <span>3</span>
+            <p>Économisez de l'argent</p>
+        </div>
+    </div>
+</section>
+
+<!-- CTA -->
+<section class="cta">
+    <h2>Prêt à économiser ?</h2>
+    <a href="#" class="btn-primary big">Créer mon compte</a>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+    <p>© 2026 SubPilot - Tous droits réservés</p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Dashboard</title>
+    <link rel="stylesheet" th:href="@{/css/dashboard.css}">
+</head>
+<body>
+
+<h1>Bienvenue <span th:text="${nom}"></span></h1>
+<p>Plan : <span th:text="${plan}"></span></p>
+
+<div th:if="${plan == 'FREE'}">
+    <p>Limité à 5 devis</p>
+</div>
+
+<div th:if="${plan == 'PRO'}">
+    <p>Accès illimité</p>
+</div>
+
+</body>
+</html>

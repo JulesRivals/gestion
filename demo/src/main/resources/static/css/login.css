@@ -1,0 +1,114 @@
+
+
+/* INPUTS */
+input {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border-radius: 6px;
+    border: 1px solid #ddd;
+    transition: 0.2s;
+}
+
+input:focus {
+    border-color: #4facfe;
+    outline: none;
+}
+
+/* BUTTON */
+button {
+    width: 100%;
+    padding: 12px;
+    margin-top: 15px;
+    border: none;
+    border-radius: 6px;
+    background: #4facfe;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #3a8de0;
+}
+
+body {
+    background: #f4f6f9;
+    font-family: 'Segoe UI';
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    margin-top: 100px;
+}
+
+form {
+    background: white;
+    padding: 40px;
+    border-radius: 10px;
+}
+
+.login-box {
+    width: 300px;
+    margin: 100px auto;
+    text-align: center;
+}
+
+input {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+}
+
+/* bouton désactivé */
+#login-btn {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 6px;
+    background: #ccc;
+    color: white;
+    cursor: not-allowed;
+}
+
+/* bouton actif */
+#login-btn.active {
+    background: #6c5ce7;
+    cursor: pointer;
+}
+
+/* erreur */
+#error-msg {
+    color: red;
+    font-size: 14px;
+}
+
+a {
+    color: inherit;
+    transition: color 0.3s;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+.retour-btn {
+    display: inline-block;
+    padding: 12px 22px;
+    font-size: 14px;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-weight: 500;
+	background: linear-gradient(135deg, #6c5ce7, #a29bfe);
+	color: white;
+	box-shadow: 0 5px 15px rgba(108, 92, 231, 0.4);
+}
+
+.retour-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(108, 92, 231, 0.6);
+}

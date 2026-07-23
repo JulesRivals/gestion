@@ -1,0 +1,59 @@
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: #f4f6f9;
+    text-align: center;
+}
+
+/* TITRE */
+h1 {
+    margin-top: 60px;
+    font-size: 36px;
+}
+
+/* GRID */
+.pricing {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 50px;
+}
+
+/* CARD */
+.card {
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    width: 260px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+/* PLAN POPULAIRE */
+.card:nth-child(2) {
+    border: 2px solid #4facfe;
+}
+
+/* PRIX */
+.card p {
+    font-size: 24px;
+    margin: 15px 0;
+}
+
+/* BUTTON */
+.card a {
+    display: inline-block;
+    padding: 10px 20px;
+    background: #4facfe;
+    color: white;
+    border-radius: 6px;
+    text-decoration: none;
+}
+
+.card a:hover {
+    background: #3a8de0;
+}

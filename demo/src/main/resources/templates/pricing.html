@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Tarifs</title>
+    <link rel="stylesheet" th:href="@{/css/pricing.css}">
+</head>
+<body>
+
+<h1>Choisis ton plan</h1>
+
+<div class="pricing">
+
+    <div class="card">
+        <h2>BASIC</h2>
+        <p>19€</p>
+        <a th:href="@{/register}">Choisir</a>
+    </div>
+
+    <div class="card">
+        <h2>PREMIUM</h2>
+        <p>32€</p>
+        <a th:href="@{/register}">Choisir</a>
+    </div>
+	
+	<div class="card">
+	        <h2>ULTIMATE</h2>
+	        <p>49€</p>
+	        <a th:href="@{/register}">Choisir</a>
+	    </div>
+
+</div>
+
+</body>
+</html>

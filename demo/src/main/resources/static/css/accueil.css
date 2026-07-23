@@ -1,0 +1,254 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f8f9fc;
+}
+
+/* NAVBAR */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    background: white;
+    align-items: center;
+}
+
+.navbar .logo {
+    font-weight: bold;
+    font-size: 22px;
+}
+
+.navbar a {
+    margin-left: 20px;
+    text-decoration: none;
+    color: #333;
+}
+
+/* BUTTON */
+.btn-primary {
+    background: #6c5ce7;
+    color: white !important;
+    padding: 10px 15px;
+    border-radius: 6px;
+}
+
+.btn-primary.big {
+    padding: 15px 25px;
+    font-size: 18px;
+}
+
+/* HERO */
+.hero {
+    display: flex;
+    align-items: center;
+    padding: 60px;
+    background: linear-gradient(120deg, #6c5ce7, #a29bfe);
+    color: white;
+}
+
+.hero-text {
+    flex: 1;
+}
+
+.hero-text h1 {
+    font-size: 42px;
+}
+
+.hero-image img {
+    width: 400px;
+    border-radius: 10px;
+}
+
+/* FEATURES */
+.features {
+    padding: 60px;
+    text-align: center;
+}
+
+.feature-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.feature {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+/* STEPS */
+.steps {
+    padding: 60px;
+    text-align: center;
+}
+
+.step-grid {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+}
+
+.step span {
+    display: block;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+/* CTA */
+.cta {
+    background: #2d3436;
+    color: white;
+    text-align: center;
+    padding: 60px;
+}
+
+
+.pricing {
+    padding: 80px 20px;
+    text-align: center;
+    background: #f8f9fc;
+}
+
+.pricing h2 {
+    font-size: 32px;
+}
+
+.subtitle {
+    color: #666;
+    margin-bottom: 40px;
+}
+
+.pricing-grid {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.card {
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    width: 280px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    position: relative;
+}
+
+.card h3 {
+    font-size: 22px;
+}
+
+.price {
+    font-size: 28px;
+    margin: 15px 0;
+}
+
+.price span {
+    font-size: 14px;
+    color: #888;
+}
+
+.card ul {
+    list-style: none;
+    padding: 0;
+    text-align: left;
+    margin: 20px 0;
+}
+
+.card li {
+    margin: 10px 0;
+}
+
+/* FEATURED PLAN */
+.featured {
+    border: 2px solid #6c5ce7;
+    transform: scale(1.05);
+}
+
+.badge {
+    position: absolute;
+    top: -10px;
+    right: 20px;
+    background: #fdcb6e;
+    padding: 5px 10px;
+    font-size: 12px;
+    border-radius: 5px;
+}
+
+/* BUTTONS */
+.btn-primary_pr {
+    display: block;
+    background: #6c5ce7;
+    color: white;
+    padding: 12px;
+    border-radius: 6px;
+    text-decoration: none;
+}
+
+.btn-secondary {
+    display: block;
+    background: #dfe6e9;
+    color: #333;
+    padding: 12px;
+    border-radius: 6px;
+    text-decoration: none;
+}
+
+
+/* BASE */
+.btn-glow,
+.btn-soft,
+.btn-outline-modern {
+    display: inline-block;
+    padding: 12px 22px;
+    font-size: 14px;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-weight: 500;
+}
+
+/* 🔥 BOUTON PRINCIPAL (gradient + glow) */
+.btn-glow {
+    background: linear-gradient(135deg, #6c5ce7, #a29bfe);
+    color: white;
+    box-shadow: 0 5px 15px rgba(108, 92, 231, 0.4);
+}
+
+.btn-glow:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(108, 92, 231, 0.6);
+}
+
+/* 🌿 BOUTON SOFT */
+.btn-soft {
+    background: #f1f2f6;
+    color: #2d3436;
+}
+
+.btn-soft:hover {
+    background: #dfe6e9;
+    transform: translateY(-2px);
+}
+
+/* 🧊 OUTLINE MODERNE */
+.btn-outline-modern {
+    border: 2px solid #6c5ce7;
+    color: #6c5ce7;
+    background: transparent;
+}
+
+.btn-outline-modern:hover {
+    background: #6c5ce7;
+    color: white;
+    transform: translateY(-2px);
+}
+
+/* FOOTER */
+.footer {
+    text-align: center;
+    padding: 20px;
+    background: #dfe6e9;
+}

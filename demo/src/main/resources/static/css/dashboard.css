@@ -1,0 +1,37 @@
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: #f4f6f9;
+}
+
+/* HEADER */
+h1 {
+    padding: 20px;
+}
+
+/* CONTAINER */
+.container {
+    padding: 40px;
+}
+
+/* CARDS */
+.box {
+    background: white;
+    padding: 25px;
+    margin: 15px 0;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+/* PLAN COLORS */
+.free {
+    border-left: 5px solid orange;
+}
+
+.pro {
+    border-left: 5px solid #4facfe;
+}
+
+.business {
+    border-left: 5px solid purple;
+}
