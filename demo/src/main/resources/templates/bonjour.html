@@ -1,13 +1,106 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
 <head>
-    <title>Résultat</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Résultat - SubPilot</title>
+    <link rel="stylesheet" href="/css/accueil.css">
 </head>
 <body>
 
 <h1 th:text="${message}"></h1>
 
 <a href="/">Retour</a>
+
+<footer class="footer">
+    <div class="footer-container">
+        
+        <!-- COLONNE 1 : MARQUE & DESCRIPTION -->
+        <div class="footer-column">
+            <div class="footer-logo">SubPilot</div>
+            <p class="footer-description">Gérez tous vos abonnements en un seul endroit. Économisez jusqu'à 40% sur vos dépenses mensuelles.</p>
+            
+            <!-- RÉSEAUX SOCIAUX -->
+            <div class="social-links">
+                <a href="https://twitter.com" aria-label="Twitter" target="_blank" rel="noopener">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2s9 5 20 5a9.5 9.5 0 00-9-5.5c4.75 2.25 7-7 7-7s-3.5 5-10 5-6.5-3-6.5-3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+                </a>
+                <a href="https://facebook.com" aria-label="Facebook" target="_blank" rel="noopener">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a6 6 0 00-6 6v3H7v4h2v8h4v-8h3l1-4h-4V8a2 2 0 012-2h3z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+                </a>
+                <a href="https://linkedin.com" aria-label="LinkedIn" target="_blank" rel="noopener">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/><circle cx="4" cy="4" r="2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+                </a>
+                <a href="https://instagram.com" aria-label="Instagram" target="_blank" rel="noopener">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><rect x="2" y="2" width="20" height="20" rx="5" ry="5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/><circle cx="17.5" cy="6.5" r="1.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="currentColor"/></svg>
+                </a>
+            </div>
+        </div>
+
+        <!-- COLONNE 2 : PRODUIT -->
+        <div class="footer-column">
+            <h4>Produit</h4>
+            <ul>
+                <li><a href="/">Accueil</a></li>
+                <li><a href="/features">Fonctionnalités</a></li>
+                <li><a href="/pricing">Tarifs</a></li>
+                <li><a href="/">Roadmap</a></li>
+                <li><a href="/">Blog</a></li>
+            </ul>
+        </div>
+
+        <!-- COLONNE 3 : ENTREPRISE -->
+        <div class="footer-column">
+            <h4>Entreprise</h4>
+            <ul>
+                <li><a href="/">À propos</a></li>
+                <li><a href="/">Carrières</a></li>
+                <li><a href="/">Presse</a></li>
+                <li><a href="/">Partenaires</a></li>
+                <li><a href="/">Contact</a></li>
+            </ul>
+        </div>
+
+        <!-- COLONNE 4 : SUPPORT -->
+        <div class="footer-column">
+            <h4>Support</h4>
+            <ul>
+                <li><a href="/">Centre d'aide</a></li>
+                <li><a href="/">Documentation</a></li>
+                <li><a href="/">Statut du service</a></li>
+                <li><a href="/">Contact support</a></li>
+                <li><a href="/">FAQ</a></li>
+            </ul>
+        </div>
+
+        <!-- COLONNE 5 : NEWSLETTER -->
+        <div class="footer-column">
+            <h4>Newsletter</h4>
+            <p class="footer-small">Recevez nos meilleures astuces pour économiser.</p>
+            <form class="newsletter-form">
+                <input type="email" placeholder="votre@email.com" required aria-label="Email pour la newsletter">
+                <button type="submit" class="btn-newsletter">S'abonner</button>
+            </form>
+        </div>
+
+    </div>
+
+    <!-- FOOTER BOTTOM -->
+    <div class="footer-bottom">
+        <div class="footer-bottom-left">
+            <p>&copy; 2026 SubPilot. Tous droits réservés.</p>
+        </div>
+        <div class="footer-bottom-right">
+            <a href="/">Politique de confidentialité</a>
+            <span>•</span>
+            <a href="/">Conditions d'utilisation</a>
+            <span>•</span>
+            <a href="/">Mentions légales</a>
+            <span>•</span>
+            <a href="/">Cookies</a>
+        </div>
+    </div>
+</footer>
 
 </body>
 </html>

@@ -1,43 +1,299 @@
+/* REGISTER PAGE - PROFESSIONAL DESIGN */
+
 body {
+    background: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
-    font-family: 'Segoe UI', sans-serif;
-    background: #eef2f7;
+    padding: 0;
+}
+
+/* NAVBAR MINIMALE */
+.navbar-minimal {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    background: white;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo-minimal {
+    font-size: 24px;
+    font-weight: 800;
+    color: #6c5ce7;
+    letter-spacing: 2px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.logo-minimal:hover {
+    opacity: 0.8;
+    transform: scale(1.05);
+}
+
+/* REGISTER CONTAINER - CENTERED */
+.register-container-centered {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    min-height: calc(100vh - 140px);
+    padding: 40px 20px;
 }
 
-/* CARD */
-form {
+/* FORM BOX - CENTERED */
+.form-box-centered {
     background: white;
-    padding: 40px;
-    border-radius: 12px;
-    width: 320px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    padding: 50px;
+    border-radius: 15px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 450px;
 }
 
-/* INPUT */
-input, select {
-    width: 100%;
-    padding: 12px;
-    margin: 10px 0;
-    border-radius: 6px;
-    border: 1px solid #ccc;
+.form-box-centered h1 {
+    font-size: 32px;
+    margin: 0 0 10px 0;
+    color: #333;
+    font-weight: 800;
+    text-align: center;
 }
 
-/* BUTTON */
-button {
+.form-subtitle {
+    color: #666;
+    margin: 0 0 30px 0;
+    font-size: 15px;
+    text-align: center;
+}
+
+/* FORM GROUPS */
+.form-group {
+    margin-bottom: 25px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 14px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 8px;
+    letter-spacing: 0.5px;
+}
+
+.form-group input,
+.form-group select {
     width: 100%;
-    padding: 12px;
-    margin-top: 15px;
-    background: #00c9a7;
-    border: none;
+    padding: 14px 16px;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 15px;
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+    font-family: inherit;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: #6c5ce7;
+    box-shadow: 0 0 0 3px rgba(108, 92, 231, 0.1);
+    background: #f9f9ff;
+}
+
+.form-group input::placeholder {
+    color: #999;
+}
+
+/* CHECKBOX STYLES */
+.form-group.checkbox {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 25px;
+}
+
+.form-group.checkbox input {
+    width: 20px;
+    height: 20px;
+    margin-top: 2px;
+    cursor: pointer;
+}
+
+.form-group.checkbox label {
+    margin-bottom: 0;
+    font-weight: 400;
+    font-size: 13px;
+    color: #555;
+    cursor: pointer;
+}
+
+.form-group.checkbox label a {
+    color: #6c5ce7;
+    text-decoration: underline;
+}
+
+/* REGISTER BUTTON */
+.btn-register {
+    width: 100%;
+    padding: 14px;
+    background: linear-gradient(135deg, #6c5ce7, #a29bfe);
     color: white;
-    border-radius: 6px;
-    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 10px;
+    letter-spacing: 0.5px;
+    box-shadow: 0 8px 20px rgba(108, 92, 231, 0.3);
 }
 
-button:hover {
-    background: #00a98c;
+.btn-register:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 30px rgba(108, 92, 231, 0.4);
+}
+
+/* LOGIN LINK */
+.login-link {
+    text-align: center;
+    margin-top: 25px;
+    padding-top: 25px;
+    border-top: 1px solid #eee;
+}
+
+.login-link p {
+    margin: 0;
+    color: #666;
+    font-size: 14px;
+}
+
+.login-link a {
+    color: #6c5ce7;
+    font-weight: 700;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.login-link a:hover {
+    color: #5f4fd8;
+    text-decoration: underline;
+}
+
+/* TRUST BADGES */
+.trust-badges {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 30px;
+}
+
+.badge {
+    background: #f5f5f5;
+    padding: 10px 16px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    color: #6c5ce7;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(108, 92, 231, 0.2);
+}
+
+/* RESPONSIVE DESIGN */
+@media (max-width: 768px) {
+    .navbar-minimal {
+        padding: 15px 20px;
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+
+    .register-container-centered {
+        min-height: calc(100vh - 100px);
+        padding: 30px 15px;
+    }
+
+    .form-box-centered {
+        padding: 30px;
+        max-width: 100%;
+    }
+
+    .form-box-centered h1 {
+        font-size: 24px;
+    }
+
+    .form-subtitle {
+        font-size: 14px;
+    }
+
+    .trust-badges {
+        gap: 10px;
+    }
+
+    .badge {
+        font-size: 11px;
+        padding: 8px 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    .navbar-minimal {
+        padding: 12px 15px;
+    }
+
+    .logo-minimal {
+        font-size: 18px;
+    }
+
+    .register-container-centered {
+        min-height: calc(100vh - 80px);
+        padding: 20px 15px;
+    }
+
+    .form-box-centered {
+        padding: 20px;
+        max-width: 100%;
+    }
+
+    .form-box-centered h1 {
+        font-size: 20px;
+    }
+
+    .form-group {
+        margin-bottom: 18px;
+    }
+
+    .form-group input,
+    .form-group select {
+        padding: 12px 14px;
+        font-size: 14px;
+    }
+
+    .form-group label {
+        font-size: 13px;
+    }
+
+    .login-link {
+        margin-top: 20px;
+        padding-top: 20px;
+    }
+
+    .login-link p {
+        font-size: 13px;
+    }
+
+    .trust-badges {
+        flex-direction: column;
+        gap: 10px;
+        margin-top: 20px;
+    }
+
+    .badge {
+        width: 100%;
+        text-align: center;
+    }
 }

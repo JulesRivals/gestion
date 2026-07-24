@@ -1,10 +1,10 @@
-
 document.addEventListener("DOMContentLoaded", function () {
 
     const email = document.getElementById("email");
     const password = document.getElementById("password");
     const btn = document.getElementById("login-btn");
     const errorMsg = document.getElementById("error-msg");
+    const form = document.querySelector("form");
 
     /* Activer bouton si champs remplis */
     function checkInputs() {
@@ -24,17 +24,22 @@ document.addEventListener("DOMContentLoaded", function () {
     function handleLogin(event) {
         event.preventDefault();
 
-        // mot de passe test
+        // Validation simple du mot de passe test
         if (password.value !== "1234") {
-            errorMsg.textContent = "Mot de passe incorrect";
-            return;
+            errorMsg.textContent = "❌ Mot de passe incorrect. Essayez '1234'";
+            errorMsg.classList.add("show");
+            return false;
         }
 
         errorMsg.textContent = "";
-        alert("Connexion réussie !");
+        errorMsg.classList.remove("show");
+        alert("✓ Connexion réussie !");
+        return false;
     }
 
-    /* Lier le bouton ou le formulaire */
-    document.getElementById("login-form").addEventListener("submit", handleLogin);
+    /* Lier le formulaire */
+    if (form) {
+        form.addEventListener("submit", handleLogin);
+    }
 
 });

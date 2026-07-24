@@ -1,33 +1,170 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Connexion</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connexion - SubPilot</title>
+    <link rel="stylesheet" href="/css/accueil.css">
     <link rel="stylesheet" href="/css/login.css">
 </head>
 <body>
-	
-<header>
-    <a th:href="@{/index.html}" class= "retour-btn"  >← Retour</a>
+
+<!-- NAVBAR MINIMALE -->
+<header class="navbar-minimal">
+    <a th:href="@{/}" class="logo-minimal">SubPilot</a>
+    <a th:href="@{/}" class="btn-glow">← Retour à l'accueil</a>
 </header>
 
-<div class="login-box">
+<!-- MAIN CONTENT - CENTRÉ -->
+<div class="login-container-centered">
+    
+    <!-- FORMULAIRE CENTRÉ -->
+    <div class="form-box-centered">
+        <h1>Se connecter</h1>
+        <p class="form-subtitle">Accédez à votre compte SubPilot</p>
 
-    <h1>Se connecter</h1>
+        <form onsubmit="return handleLogin(event)">
+            
+            <!-- CHAMP EMAIL -->
+            <div class="form-group">
+                <label for="email">Adresse e-mail</label>
+                <input 
+                    type="email" 
+                    id="email" 
+                    placeholder="vous@example.com" 
+                    required
+                    aria-label="Adresse e-mail"
+                >
+            </div>
 
-    <form onsubmit="return handleLogin(event)">
-        
-        <input type="email" id="email" placeholder="E-mail" required>
+            <!-- CHAMP MOT DE PASSE -->
+            <div class="form-group">
+                <label for="password">Mot de passe</label>
+                <input 
+                    type="password" 
+                    id="password" 
+                    placeholder="••••••••"
+                    aria-label="Mot de passe"
+                >
+            </div>
 
-        <input type="password" id="password" placeholder="Mot de passe">
+            <!-- MESSAGE D'ERREUR -->
+            <p id="error-msg" class="error-message"></p>
 
-        <p id="error-msg"></p>
-		<p class = "miniature"> Vous n'avez pas encore de compte? </p><a th:href="@{/register}" >Inscrivez vous ici</a>
+            <!-- BOUTON DE CONNEXION -->
+            <button id="login-btn" type="submit" disabled class="btn-login">
+                Se connecter
+            </button>
 
-        <button id="login-btn" disabled>Se connecter</button>
+        </form>
 
-    </form>
+        <!-- LIEN VERS INSCRIPTION -->
+        <div class="signup-link">
+            <p>Vous n'avez pas encore de compte ? 
+                <a th:href="@{/register}">Créez-en un ici</a>
+            </p>
+        </div>
+
+        <!-- LIEN MOT DE PASSE OUBLIÉ -->
+        <div class="forgot-password">
+            <a href="/">Mot de passe oublié ?</a>
+        </div>
+
+        <!-- TRUST BADGES -->
+        <div class="trust-badges">
+            <span class="badge">🔒 Sécurisé SSL</span>
+            <span class="badge">✓ Données chiffrées</span>
+            <span class="badge">RGPD Conforme</span>
+        </div>
+    </div>
 
 </div>
+
+<!-- FOOTER -->
+<footer class="footer">
+    <div class="footer-container">
+        
+        <div class="footer-column">
+            <div class="footer-logo">SubPilot</div>
+            <p class="footer-description">Gérez tous vos abonnements en un seul endroit. Économisez jusqu'à 40% sur vos dépenses mensuelles.</p>
+            
+            <div class="social-links">
+                <a href="https://twitter.com" aria-label="Twitter" target="_blank" rel="noopener">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2s9 5 20 5a9.5 9.5 0 00-9-5.5c4.75 2.25 7-7 7-7s-3.5 5-10 5-6.5-3-6.5-3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+                </a>
+                <a href="https://facebook.com" aria-label="Facebook" target="_blank" rel="noopener">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a6 6 0 00-6 6v3H7v4h2v8h4v-8h3l1-4h-4V8a2 2 0 012-2h3z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+                </a>
+                <a href="https://linkedin.com" aria-label="LinkedIn" target="_blank" rel="noopener">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/><circle cx="4" cy="4" r="2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+                </a>
+                <a href="https://instagram.com" aria-label="Instagram" target="_blank" rel="noopener">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><rect x="2" y="2" width="20" height="20" rx="5" ry="5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/><circle cx="17.5" cy="6.5" r="1.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="currentColor"/></svg>
+                </a>
+            </div>
+        </div>
+
+        <div class="footer-column">
+            <h4>Produit</h4>
+            <ul>
+                <li><a href="/">Accueil</a></li>
+                <li><a href="/features">Fonctionnalités</a></li>
+                <li><a href="/pricing">Tarifs</a></li>
+                <li><a href="/">Roadmap</a></li>
+                <li><a href="/">Blog</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-column">
+            <h4>Entreprise</h4>
+            <ul>
+                <li><a href="/">À propos</a></li>
+                <li><a href="/">Carrières</a></li>
+                <li><a href="/">Presse</a></li>
+                <li><a href="/">Partenaires</a></li>
+                <li><a href="/">Contact</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-column">
+            <h4>Support</h4>
+            <ul>
+                <li><a href="/">Centre d'aide</a></li>
+                <li><a href="/">Documentation</a></li>
+                <li><a href="/">Statut du service</a></li>
+                <li><a href="/">Contact support</a></li>
+                <li><a href="/">FAQ</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-column">
+            <h4>Newsletter</h4>
+            <p class="footer-small">Recevez nos meilleures astuces pour économiser.</p>
+            <form class="newsletter-form">
+                <input type="email" placeholder="votre@email.com" required aria-label="Email pour la newsletter">
+                <button type="submit" class="btn-newsletter">S'abonner</button>
+            </form>
+        </div>
+
+    </div>
+
+    <div class="footer-bottom">
+        <div class="footer-bottom-left">
+            <p>&copy; 2026 SubPilot. Tous droits réservés.</p>
+        </div>
+        <div class="footer-bottom-right">
+            <a href="/">Politique de confidentialité</a>
+            <span>•</span>
+            <a href="/">Conditions d'utilisation</a>
+            <span>•</span>
+            <a href="/">Mentions légales</a>
+            <span>•</span>
+            <a href="/">Cookies</a>
+        </div>
+    </div>
+</footer>
+
 <script th:src="@{/js/login.js}"></script>
+
 </body>
 </html>

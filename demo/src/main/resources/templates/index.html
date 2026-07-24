@@ -1,6 +1,9 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="SubPilot - Gérez tous vos abonnements en un seul endroit. Découvrez vos dépenses et économisez de l'argent.">
     <title>SubPilot - Gérez vos abonnements facilement</title>
     <link rel="stylesheet" th:href="@{/css/accueil.css}">
 </head>
@@ -8,17 +11,17 @@
 
 <!-- NAVBAR -->
 <header class="navbar">
-    <div class="logo">SubPilot</div>
+    <a th:href="@{/}" class="logo">SubPilot</a>
     <nav>
 		<!-- Bouton principal -->
-		<a th:href="@{/login}" class="btn-glow">Se connecter</a>
+		<a th:href="@{/login}" class="btn-glow" aria-label="Se connecter">Se connecter</a>
 
 		<!-- Bouton secondaire -->
-		<a  href="#pricing-section" class="btn-glow">Tarifs</a>
+		<a href="#pricing-section" class="btn-glow" aria-label="Voir les tarifs">Tarifs</a>
 
 		<!-- Bouton outline -->
-		<a href="#" class="btn-glow">Découvrir</a>
-        <a href="#" class="btn-glow">S'inscrire</a>
+		<a th:href="@{/features}" class="btn-glow" aria-label="Découvrir les fonctionnalités">Découvrir</a>
+        <a th:href="@{/register}" class="btn-glow" aria-label="S'inscrire">S'inscrire</a>
     </nav>
 </header>
 
@@ -27,11 +30,42 @@
     <div class="hero-text">
         <h1>Gérez tous vos abonnements en un seul endroit</h1>
         <p>Découvrez combien vous dépensez et économisez en quelques secondes.</p>
-        <a href="#" class="btn-glow">Commencer gratuitement</a>
+        <a th:href="@{/register}" class="btn-glow" aria-label="Commencer gratuitement">Commencer gratuitement</a>
     </div>
 
-    <div class="hero-image">
-        <img src="https://images.unsplash.com/photo-1551281044-8c4a1c5c7a1b" alt="dashboard">
+    <div class="hero-right">
+        <div class="hero-visual">
+            <!-- LOGOS DE PARTENAIRES -->
+            <div class="brands-section">
+                <p class="brands-title">Gérez vos abonnements auprès de :</p>
+                <div class="brands-grid">
+                    <div class="brand-logo">Netflix</div>
+                    <div class="brand-logo">Spotify</div>
+                    <div class="brand-logo">Amazon</div>
+                    <div class="brand-logo">Apple</div>
+                    <div class="brand-logo">Adobe</div>
+                    <div class="brand-logo">Google</div>
+                </div>
+            </div>
+
+            <!-- ILLUSTRATION / STATISTIQUES -->
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <span class="stat-icon">💰</span>
+                    <div class="stat-info">
+                        <strong>156€/mois</strong>
+                        <small>économisés en moyenne</small>
+                    </div>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-icon">⏱️</span>
+                    <div class="stat-info">
+                        <strong>5 min</strong>
+                        <small>pour commencer</small>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </section>
 
@@ -55,7 +89,7 @@
                 <li>❌ Insights avancés</li>
             </ul>
 
-            <a href="#" class="btn-primary">Essayer gratuitement</a>
+            <a th:href="@{/register}" class="btn-primary" aria-label="Essayer le plan Basic gratuitement">Essayer gratuitement</a>
         </div>
 
         <!-- PRO -->
@@ -73,7 +107,7 @@
                 <li>✔️ Optimisation des dépenses</li>
             </ul>
 
-            <a href="#" class="btn-primary">Essayer gratuitement</a>
+            <a th:href="@{/register}" class="btn-primary" aria-label="Essayer le plan Pro gratuitement">Essayer gratuitement</a>
         </div>
 
         <!-- PREMIUM -->
@@ -89,72 +123,320 @@
                 <li>✔️ Futures automatisations</li>
             </ul>
 
-            <a href="#" class="btn-secondary">Passer Premium</a>
+            <a th:href="@{/register}" class="btn-secondary" aria-label="Passer Premium">Passer Premium</a>
         </div>
 
     </div>
 
 </section>
 
-<!-- FEATURES -->
-<section class="features">
-    <h2>Pourquoi utiliser SubPilot ?</h2>
 
-    <div class="feature-grid">
-        <div class="feature">
-            <h3>📊 Vision claire</h3>
-            <p>Visualisez vos dépenses mensuelles instantanément.</p>
+<!-- STATS SECTION -->
+<section class="stats-section">
+    <div class="stats-header">
+        <h2>Rejoignez des milliers d'utilisateurs satisfaits</h2>
+        <p>SubPilot aide déjà des clients à économiser des milliers d'euros chaque année</p>
+    </div>
+
+    <div class="stats-grid">
+        <div class="stat-card">
+            <div class="stat-number">50K+</div>
+            <div class="stat-label">Utilisateurs actifs</div>
+            <p>Une communauté en croissance constante</p>
         </div>
 
-        <div class="feature">
-            <h3>🔍 Détection automatique</h3>
-            <p>Nous trouvons vos abonnements à partir de vos emails.</p>
+        <div class="stat-card">
+            <div class="stat-number">€2.5M+</div>
+            <div class="stat-label">Économisés</div>
+            <p>Total économisé par nos utilisateurs</p>
         </div>
 
-        <div class="feature">
-            <h3>⚠️ Alertes intelligentes</h3>
-            <p>Ne payez plus pour des services inutiles.</p>
+        <div class="stat-card">
+            <div class="stat-number">42%</div>
+            <div class="stat-label">Économie moyenne</div>
+            <p>Par mois sur les dépenses d'abonnements</p>
         </div>
 
-        <div class="feature">
-            <h3>✂️ Résiliation rapide</h3>
-            <p>Accédez aux liens pour résilier en un clic.</p>
+        <div class="stat-card">
+            <div class="stat-number">4.9★</div>
+            <div class="stat-label">Note utilisateurs</div>
+            <p>Basé sur 5000+ avis vérifiés</p>
         </div>
     </div>
 </section>
 
-<!-- HOW IT WORKS -->
-<section class="steps">
-    <h2>Comment ça marche</h2>
+<!-- TESTIMONIALS SECTION -->
+<section class="testimonials">
+    <div class="testimonials-header">
+        <h2>Ce que disent nos clients</h2>
+        <p>Des résultats réels et mesurables</p>
+    </div>
 
-    <div class="step-grid">
-        <div class="step">
-            <span>1</span>
-            <p>Connectez votre email</p>
+    <div class="testimonials-grid">
+        <div class="testimonial-card">
+            <div class="stars">⭐⭐⭐⭐⭐</div>
+            <p class="testimonial-text">"SubPilot m'a permis de découvrir 8 abonnements oubliés. J'économise maintenant 156€ par mois !"</p>
+            <div class="testimonial-author">
+                <div class="author-avatar">MJ</div>
+                <div class="author-info">
+                    <div class="author-name">Marie Joly</div>
+                    <div class="author-role">Consultante Marketing</div>
+                </div>
+            </div>
         </div>
 
-        <div class="step">
-            <span>2</span>
-            <p>Nous analysons vos abonnements</p>
+        <div class="testimonial-card">
+            <div class="stars">⭐⭐⭐⭐⭐</div>
+            <p class="testimonial-text">"L'interface est ultra intuitive. J'ai consolidé mes 23 abonnements en 10 minutes. Recommandé !"</p>
+            <div class="testimonial-author">
+                <div class="author-avatar">PL</div>
+                <div class="author-info">
+                    <div class="author-name">Pierre Leclerc</div>
+                    <div class="author-role">Développeur</div>
+                </div>
+            </div>
         </div>
 
-        <div class="step">
-            <span>3</span>
-            <p>Économisez de l'argent</p>
+        <div class="testimonial-card">
+            <div class="stars">⭐⭐⭐⭐⭐</div>
+            <p class="testimonial-text">"Le support est excellent et m'a aidé à résilier rapidement mes abonnements inutiles."</p>
+            <div class="testimonial-author">
+                <div class="author-avatar">SR</div>
+                <div class="author-info">
+                    <div class="author-name">Sophie Ramirez</div>
+                    <div class="author-role">Manager Projet</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="testimonial-card">
+            <div class="stars">⭐⭐⭐⭐⭐</div>
+            <p class="testimonial-text">"Enfin un outil qui me montre clairement où va mon argent. C'est devenu indispensable !"</p>
+            <div class="testimonial-author">
+                <div class="author-avatar">JD</div>
+                <div class="author-info">
+                    <div class="author-name">Jean Dubois</div>
+                    <div class="author-role">Entrepreneur</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="testimonial-card">
+            <div class="stars">⭐⭐⭐⭐⭐</div>
+            <p class="testimonial-text">"La détection automatique est magique. Elle a trouvé des abonnements que j'avais complètement oubliés."</p>
+            <div class="testimonial-author">
+                <div class="author-avatar">NM</div>
+                <div class="author-info">
+                    <div class="author-name">Nathalie Martin</div>
+                    <div class="author-role">Design UX</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="testimonial-card">
+            <div class="stars">⭐⭐⭐⭐⭐</div>
+            <p class="testimonial-text">"SubPilot c'est l'outil que j'aurais dû installer bien plus tôt. Résultat : +500€ économisés !"</p>
+            <div class="testimonial-author">
+                <div class="author-avatar">LG</div>
+                <div class="author-info">
+                    <div class="author-name">Luc Garcia</div>
+                    <div class="author-role">Freelancer</div>
+                </div>
+            </div>
         </div>
     </div>
 </section>
 
-<!-- CTA -->
-<section class="cta">
-    <h2>Prêt à économiser ?</h2>
-    <a href="#" class="btn-primary big">Créer mon compte</a>
+<!-- FAQ SECTION -->
+<section class="faq">
+    <div class="faq-header">
+        <h2>Questions Fréquemment Posées</h2>
+        <p>Tout ce que vous devez savoir sur SubPilot</p>
+    </div>
+
+    <div class="faq-grid">
+        <div class="faq-item">
+            <button class="faq-button">
+                <span class="faq-question">Est-ce que SubPilot est vraiment sécurisé ?</span>
+                <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+                Oui, nous utilisons le chiffrement SSL 256-bit pour toutes vos données. Nous sommes certifiés ISO 27001 et conformes au RGPD. Vos données ne sont jamais partagées avec des tiers.
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-button">
+                <span class="faq-question">Combien de temps pour voir des résultats ?</span>
+                <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+                La plupart de nos utilisateurs découvrent leurs abonnements oubliés en moins de 5 minutes après l'inscription. Les économies réelles commencent immédiatement une fois que vous commencez à résilier.
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-button">
+                <span class="faq-question">Puis-je résilier mes abonnements via SubPilot ?</span>
+                <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+                Oui ! Le plan Pro et Premium incluent un accès direct aux liens de résiliation. Vous pouvez résilier en un clic, et nous vous donnons même des conseils pour obtenir des remboursements.
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-button">
+                <span class="faq-question">Comment fonctionnent les essais gratuits ?</span>
+                <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+                Tous nos plans incluent une période d'essai gratuite de 14 jours. Aucune carte bancaire requise. Vous pouvez annuler à tout moment avant la fin de la période.
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-button">
+                <span class="faq-question">Puis-je partager mon compte avec ma famille ?</span>
+                <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+                Le plan Premium permet jusqu'à 3 utilisateurs par compte. Chacun peut gérer ses propres abonnements indépendamment. Parfait pour les familles !
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-button">
+                <span class="faq-question">Quel support proposez-vous ?</span>
+                <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+                Plans Pro & Premium : Support chat 24/7 en français. Réponse garantie en moins de 2 heures. Vous avez aussi accès à notre base de connaissances complète et des tutoriels vidéo.
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final-cta">
+    <div class="final-cta-content">
+        <h2>Commencez à économiser aujourd'hui</h2>
+        <p>14 jours gratuits. Aucune carte bancaire requise.</p>
+        <a th:href="@{/register}" class="btn-cta-large">Créer un compte gratuitement</a>
+        <p class="trust-text">✓ Plus de 50 000 utilisateurs nous font confiance • ✓ Satisfaction garantie 100%</p>
+    </div>
 </section>
 
 <!-- FOOTER -->
 <footer class="footer">
-    <p>© 2026 SubPilot - Tous droits réservés</p>
+    <div class="footer-container">
+        
+        <!-- COLONNE 1 : MARQUE & DESCRIPTION -->
+        <div class="footer-column">
+            <div class="footer-logo">SubPilot</div>
+            <p class="footer-description">Gérez tous vos abonnements en un seul endroit. Économisez jusqu'à 40% sur vos dépenses mensuelles.</p>
+            
+            <!-- RÉSEAUX SOCIAUX -->
+            <div class="social-links">
+                <a href="https://twitter.com" aria-label="Twitter" target="_blank" rel="noopener">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2s9 5 20 5a9.5 9.5 0 00-9-5.5c4.75 2.25 7-7 7-7s-3.5 5-10 5-6.5-3-6.5-3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+                </a>
+                <a href="https://facebook.com" aria-label="Facebook" target="_blank" rel="noopener">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a6 6 0 00-6 6v3H7v4h2v8h4v-8h3l1-4h-4V8a2 2 0 012-2h3z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+                </a>
+                <a href="https://linkedin.com" aria-label="LinkedIn" target="_blank" rel="noopener">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/><circle cx="4" cy="4" r="2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+                </a>
+                <a href="https://instagram.com" aria-label="Instagram" target="_blank" rel="noopener">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><rect x="2" y="2" width="20" height="20" rx="5" ry="5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/><circle cx="17.5" cy="6.5" r="1.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="currentColor"/></svg>
+                </a>
+            </div>
+        </div>
+
+        <!-- COLONNE 2 : PRODUIT -->
+        <div class="footer-column">
+            <h4>Produit</h4>
+            <ul>
+                <li><a th:href="@{/}">Accueil</a></li>
+                <li><a th:href="@{/features}">Fonctionnalités</a></li>
+                <li><a href="#pricing-section">Tarifs</a></li>
+                <li><a th:href="@{/#}">Roadmap</a></li>
+                <li><a th:href="@{/#}">Blog</a></li>
+            </ul>
+        </div>
+
+        <!-- COLONNE 3 : ENTREPRISE -->
+        <div class="footer-column">
+            <h4>Entreprise</h4>
+            <ul>
+                <li><a th:href="@{/#}">À propos</a></li>
+                <li><a th:href="@{/#}">Carrières</a></li>
+                <li><a th:href="@{/#}">Presse</a></li>
+                <li><a th:href="@{/#}">Partenaires</a></li>
+                <li><a th:href="@{/#}">Contact</a></li>
+            </ul>
+        </div>
+
+        <!-- COLONNE 4 : SUPPORT & LÉGAL -->
+        <div class="footer-column">
+            <h4>Support</h4>
+            <ul>
+                <li><a th:href="@{/#}">Centre d'aide</a></li>
+                <li><a th:href="@{/#}">Documentation</a></li>
+                <li><a th:href="@{/#}">Statut du service</a></li>
+                <li><a th:href="@{/#}">Contact support</a></li>
+                <li><a th:href="@{/#}">FAQ</a></li>
+            </ul>
+        </div>
+
+        <!-- COLONNE 5 : NEWSLETTER -->
+        <div class="footer-column">
+            <h4>Newsletter</h4>
+            <p class="footer-small">Recevez nos meilleures astuces pour économiser.</p>
+            <form class="newsletter-form">
+                <input type="email" placeholder="votre@email.com" required aria-label="Email pour la newsletter">
+                <button type="submit" class="btn-newsletter">S'abonner</button>
+            </form>
+        </div>
+
+    </div>
+
+    <!-- FOOTER BOTTOM -->
+    <div class="footer-bottom">
+        <div class="footer-bottom-left">
+            <p>&copy; 2026 SubPilot. Tous droits réservés.</p>
+        </div>
+        <div class="footer-bottom-right">
+            <a th:href="@{/#}">Politique de confidentialité</a>
+            <span>•</span>
+            <a th:href="@{/#}">Conditions d'utilisation</a>
+            <span>•</span>
+            <a th:href="@{/#}">Mentions légales</a>
+            <span>•</span>
+            <a th:href="@{/#}">Cookies</a>
+        </div>
+    </div>
 </footer>
+
+<script>
+// FAQ Accordion Functionality
+document.querySelectorAll('.faq-button').forEach(button => {
+    button.addEventListener('click', function() {
+        const faqItem = this.parentElement;
+        const isActive = faqItem.classList.contains('active');
+        
+        // Close all other items
+        document.querySelectorAll('.faq-item').forEach(item => {
+            item.classList.remove('active');
+        });
+        
+        // Toggle current item
+        if (!isActive) {
+            faqItem.classList.add('active');
+        }
+    });
+});
+</script>
 
 </body>
 </html>
