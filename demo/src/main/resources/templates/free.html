@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="utf-8">
+  <title>SubPilot — Version gratuite</title>
+  <link rel="stylesheet" th:href="@{/css/accueil.css}">
+  <link rel="stylesheet" th:href="@{/css/free.css}">
+</head>
+<body>
+  <div th:replace="fragments/header :: header"></div>
+
+  <main class="site-main">
+    <section class="hero">
+      <div class="hero-text">
+        <h1>Essayez SubPilot — Version gratuite</h1>
+        <p>Commencez à suivre jusqu'à 5 abonnements gratuitement. Pas de carte requise.</p>
+        <a th:href="@{/register}" class="btn-glow">S'inscrire gratuitement</a>
+      </div>
+      <div class="hero-right">
+        <!-- simple visual -->
+        <div class="hero-visual">
+          <div class="brands-section">
+            <p class="brands-title">Compatibilité</p>
+            <div class="brands-grid">
+              <div class="brand-logo">Netflix</div>
+              <div class="brand-logo">Spotify</div>
+              <div class="brand-logo">Amazon</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="pricing">
+      <h2>Votre plan gratuit</h2>
+      <p class="subtitle">Fonctionnalités incluses</p>
+
+      <div class="pricing-grid">
+        <div class="card plan-card free">
+          <h3>Free</h3>
+          <p class="price">0€ <span>/mois</span></p>
+          <ul class="features-list free">
+            <li>Suivi jusqu'à 5 abonnements</li>
+            <li>Alertes basiques</li>
+            <li class="unavailable">Résiliation automatique (PRO)</li>
+            <li class="unavailable">Détection avancée (PRO)</li>
+          </ul>
+          <a th:href="@{/dashboard-free}" class="btn-primary upgrade">Accéder à mon espace</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div th:replace="fragments/footer :: footer"></div>
+</body>
+</html>

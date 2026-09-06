@@ -1,37 +1,137 @@
+/* Dashboard styles — harmonized with main green theme */
+
+:root {
+  --bg: #f4f6f9;
+  --text: #222;
+  --muted: #666;
+  --card-bg: #ffffff;
+  --primary: #16A34A;
+  --primary-2: #9AE6B8;
+  --primary-dark: #137f36;
+  --shadow: 0 8px 30px rgba(0,0,0,0.06);
+  --accent-green: #27ae60;
+  --accent-orange: #f39c12;
+  --accent-red: #e74c3c;
+}
+
 body {
-    margin: 0;
-    font-family: 'Segoe UI', sans-serif;
-    background: #f4f6f9;
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: var(--bg);
+  color: var(--text);
 }
 
-/* HEADER */
-h1 {
-    padding: 20px;
+/* Buttons */
+.btn-primary {
+  background: var(--primary);
+  color: white !important;
+  padding: 10px 14px;
+  border-radius: 8px;
+  text-decoration: none;
+  display: inline-block;
+  font-weight: 700;
+  transition: all .25s ease;
+  box-shadow: 0 8px 30px rgba(22, 163, 74, 0.18);
+}
+.btn-primary:hover { transform: translateY(-3px); }
+
+.btn-secondary {
+  background: #eef1f0;
+  color: #222;
+  padding: 9px 12px;
+  border-radius: 8px;
+  text-decoration: none;
+  display: inline-block;
+  transition: all .2s ease;
+}
+.btn-secondary:hover { transform: translateY(-2px); }
+
+/* Layout */
+.site-main {
+  max-width: 1200px;
+  margin: 24px auto;
+  padding: 0 20px 40px;
 }
 
-/* CONTAINER */
-.container {
-    padding: 40px;
+.small-hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 28px;
+  border-radius: 12px;
+  color: white;
+  background: linear-gradient(135deg, var(--primary), var(--primary-2));
+  box-shadow: 0 12px 40px rgba(22,163,74,0.12);
+  margin-bottom: 20px;
+}
+.small-hero h1 { margin: 0 0 10px; font-size:28px; }
+.small-hero p { margin: 0 0 14px; color: rgba(255,255,255,0.95); }
+
+/* Grid */
+.container.dashboard-grid {
+  display: grid;
+  grid-template-columns: 1fr 360px;
+  gap: 24px;
+  align-items: start;
+  margin-top: 14px;
 }
 
-/* CARDS */
+/* Card / Box */
 .box {
-    background: white;
-    padding: 25px;
-    margin: 15px 0;
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  background: var(--card-bg);
+  padding: 22px;
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  border: 1px solid rgba(16,24,40,0.04);
 }
 
-/* PLAN COLORS */
-.free {
-    border-left: 5px solid orange;
+.card-grid { display:flex; gap:16px; margin-top:18px; }
+.card-grid .card { flex:1; padding:18px; border-radius:10px; background: white; box-shadow: var(--shadow); text-align:center; }
+
+/* Stats */
+.hero-stats.compact { display:flex; gap:12px; align-items:center; }
+.hero-stats.compact .stat-item {
+  background: rgba(0,0,0,0.03);
+  padding:10px 12px;
+  border-radius:10px;
+  display:flex;
+  gap:10px;
+  align-items:center;
+  border: 1px solid rgba(0,0,0,0.04);
+}
+.stat-icon { font-size:20px; display:inline-flex; align-items:center; justify-content:center; }
+
+/* Plan cards */
+.plan-card { text-align: left; }
+.plan-card.free { border-left: 5px solid var(--accent-orange); }
+.plan-card.pro { border-left: 5px solid var(--primary); }
+.plan-card.business { border-left: 5px solid var(--primary); }
+
+.features-list { list-style:none; padding: 0; margin: 12px 0 0 0; }
+.features-list li { padding: 8px 0; color: #333; display:flex; align-items:center; }
+.features-list li:before { content: "✓"; display:inline-block; margin-right:10px; color: var(--accent-green); font-weight:700; }
+
+/* Tiny utilities */
+.kv { display:flex; justify-content:space-between; align-items:center; }
+.detail-row { display:flex; justify-content:space-between; gap:12px; padding:10px 0; border-bottom:1px solid #f1f3f5; }
+.detail-row:last-child { border-bottom:none; }
+
+/* Footer spacing (page footer styled in accueil.css) */
+.footer { margin-top: 40px; }
+
+/* Accessibility focus */
+a:focus, button:focus { outline: 3px solid rgba(22,163,74,0.15); outline-offset: 2px; }
+
+/* Responsive */
+@media (max-width: 980px) {
+  .container.dashboard-grid { grid-template-columns: 1fr; }
+  .small-hero { flex-direction: column; align-items:flex-start; }
+  .card-grid { flex-direction: column; }
+  .site-main { padding: 0 16px 30px; }
 }
 
-.pro {
-    border-left: 5px solid #4facfe;
-}
-
-.business {
-    border-left: 5px solid purple;
+@media (max-width: 480px) {
+  .small-hero h1 { font-size:18px; }
+  .small-hero p { font-size:13px; }
 }

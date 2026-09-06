@@ -4,109 +4,175 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard - SubPilot</title>
-    <link rel="stylesheet" th:href="@{/css/dashboard.css}">
+
+    <!-- Réutilise le style principal de la page d'accueil -->
     <link rel="stylesheet" th:href="@{/css/accueil.css}">
+    <!-- Garde dashboard.css pour overrides spécifiques -->
+    <link rel="stylesheet" th:href="@{/css/dashboard.css}">
 </head>
 <body>
 
-<h1>Bienvenue <span th:text="${nom}"></span></h1>
-<p>Plan : <span th:text="${plan}"></span></p>
+<!-- NAVBAR (même structure que index.html pour cohérence visuelle) -->
+<header class="navbar">
+    <a th:href="@{/}" class="logo">SubPilot</a>
+    <nav>
+        <a th:href="@{/pricing}" class="btn-glow">Tarifs</a>
+        <a th:href="@{/features}" class="btn-glow">Découvrir</a>
+        <a th:href="@{/logout}" class="btn-glow">Déconnexion</a>
+    </nav>
+</header>
 
-<div th:if="${plan == 'FREE'}">
-    <p>Limité à 5 devis</p>
-</div>
+<main class="site-main">
 
-<div th:if="${plan == 'PRO'}">
-    <p>Accès illimité</p>
-</div>
+    <!-- HERO / WELCOME -->
+    <section class="hero small-hero">
+        <div class="hero-text">
+            <h1 th:text="'Bienvenue, ' + ${nom} + ' !'">Bienvenue</h1>
+            <p>Tableau de bord — gérez vos abonnements, consultez vos plans et accédez rapidement aux actions importantes.</p>
+            <a th:href="@{/pricing}" class="btn-primary">Voir les offres</a>
+        </div>
 
-<footer class="footer">
-    <div class="footer-container">
-        
-        <!-- COLONNE 1 : MARQUE & DESCRIPTION -->
-        <div class="footer-column">
-            <div class="footer-logo">SubPilot</div>
-            <p class="footer-description">Gérez tous vos abonnements en un seul endroit. Économisez jusqu'à 40% sur vos dépenses mensuelles.</p>
-            
-            <!-- RÉSEAUX SOCIAUX -->
-            <div class="social-links">
-                <a href="https://twitter.com" aria-label="Twitter" target="_blank" rel="noopener">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2s9 5 20 5a9.5 9.5 0 00-9-5.5c4.75 2.25 7-7 7-7s-3.5 5-10 5-6.5-3-6.5-3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
-                </a>
-                <a href="https://facebook.com" aria-label="Facebook" target="_blank" rel="noopener">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a6 6 0 00-6 6v3H7v4h2v8h4v-8h3l1-4h-4V8a2 2 0 012-2h3z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
-                </a>
-                <a href="https://linkedin.com" aria-label="LinkedIn" target="_blank" rel="noopener">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/><circle cx="4" cy="4" r="2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
-                </a>
-                <a href="https://instagram.com" aria-label="Instagram" target="_blank" rel="noopener">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><rect x="2" y="2" width="20" height="20" rx="5" ry="5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/><circle cx="17.5" cy="6.5" r="1.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="currentColor"/></svg>
-                </a>
+        <div class="hero-right">
+            <div class="hero-stats compact">
+                <div class="stat-item">
+                    <span class="stat-icon">💳</span>
+                    <div class="stat-info">
+                        <strong th:text="${plan == null ? '—' : plan}">PRO</strong>
+                        <small>Votre formule</small>
+                    </div>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-icon">👤</span>
+                    <div class="stat-info">
+                        <strong th:text="${email}">you@example.com</strong>
+                        <small>Adresse</small>
+                    </div>
+                </div>
             </div>
         </div>
+    </section>
 
-        <!-- COLONNE 2 : PRODUIT -->
-        <div class="footer-column">
-            <h4>Produit</h4>
-            <ul>
-                <li><a href="/">Accueil</a></li>
-                <li><a href="/features">Fonctionnalités</a></li>
-                <li><a href="/pricing">Tarifs</a></li>
-                <li><a href="/">Roadmap</a></li>
-                <li><a href="/">Blog</a></li>
-            </ul>
-        </div>
+    <div class="container dashboard-grid">
 
-        <!-- COLONNE 3 : ENTREPRISE -->
-        <div class="footer-column">
-            <h4>Entreprise</h4>
-            <ul>
-                <li><a href="/">À propos</a></li>
-                <li><a href="/">Carrières</a></li>
-                <li><a href="/">Presse</a></li>
-                <li><a href="/">Partenaires</a></li>
-                <li><a href="/">Contact</a></li>
-            </ul>
-        </div>
+        <!-- LEFT: informations utilisateur & actions rapides -->
+        <section class="col-left">
+            <div class="box">
+                <h2>Vos informations</h2>
+                <div class="detail-row">
+                    <span class="detail-label">Nom</span>
+                    <span class="detail-value" th:text="${nom}">Nom Utilisateur</span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-label">Email</span>
+                    <span class="detail-value" th:text="${email}">email@example.com</span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-label">ID</span>
+                    <span class="detail-value" th:text="${userId}">123</span>
+                </div>
 
-        <!-- COLONNE 4 : SUPPORT -->
-        <div class="footer-column">
-            <h4>Support</h4>
-            <ul>
-                <li><a href="/">Centre d'aide</a></li>
-                <li><a href="/">Documentation</a></li>
-                <li><a href="/">Statut du service</a></li>
-                <li><a href="/">Contact support</a></li>
-                <li><a href="/">FAQ</a></li>
-            </ul>
-        </div>
+                <div style="margin-top:16px;">
+                    <a th:href="@{/subscriptions}" class="btn-primary" style="margin-right:8px;">Mes abonnements</a>
+                    <a th:href="@{/account}" class="btn-secondary">Paramètres</a>
+                </div>
+            </div>
 
-        <!-- COLONNE 5 : NEWSLETTER -->
-        <div class="footer-column">
-            <h4>Newsletter</h4>
-            <p class="footer-small">Recevez nos meilleures astuces pour économiser.</p>
-            <form class="newsletter-form">
-                <input type="email" placeholder="votre@email.com" required aria-label="Email pour la newsletter">
-                <button type="submit" class="btn-newsletter">S'abonner</button>
-            </form>
-        </div>
+            <div class="box">
+                <h2>Actions rapides</h2>
+                <ul class="features-list compact">
+                    <li><a th:href="@{/add-subscription}">Ajouter un abonnement</a></li>
+                    <li><a th:href="@{/billing}">Voir factures</a></li>
+                    <li><a th:href="@{/alerts}">Gérer alertes</a></li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- RIGHT: plan / CTA / résumé -->
+        <aside class="col-right">
+            <div th:if="${plan == 'FREE'}" class="box plan-card free">
+                <h3>Plan FREE</h3>
+                <p>Accès de base — <strong>5,99€/mois</strong></p>
+                <ul class="features-list">
+                    <li>Suivi jusqu'à 5 abonnements</li>
+                    <li>Alertes de renouvellement</li>
+                </ul>
+                <a th:href="@{/pricing}" class="btn-primary">Passer à PRO</a>
+            </div>
+
+            <div th:if="${plan == 'PRO'}" class="box plan-card pro">
+                <h3>Plan PRO</h3>
+                <p>Fonctions avancées — <strong>12,99€/mois</strong></p>
+                <ul class="features-list">
+                    <li>Abonnements illimités</li>
+                    <li>Analyses & rappels personnalisés</li>
+                </ul>
+                <a th:href="@{/pricing}" class="btn-primary">Voir la formule BUSINESS</a>
+            </div>
+
+            <div th:if="${plan == 'BUSINESS'}" class="box plan-card business">
+                <h3>Plan BUSINESS</h3>
+                <p>Tout inclus — <strong>19,99€/mois</strong></p>
+                <ul class="features-list">
+                    <li>Gestion multi-comptes</li>
+                    <li>Intégrations avancées</li>
+                </ul>
+                <p style="color:#27ae60;font-weight:700;margin-top:8px;">✓ Vous avez accès à tous les services</p>
+            </div>
+        </aside>
 
     </div>
 
-    <!-- FOOTER BOTTOM -->
+    <!-- STAT / QUICK INSIGHTS -->
+    <section class="container stats-cards">
+        <div class="card-grid">
+            <div class="card">
+                <div class="card-title">Abonnements suivis</div>
+                <div class="card-value">12</div>
+            </div>
+            <div class="card">
+                <div class="card-title">Dépense/mois estimée</div>
+                <div class="card-value">156€</div>
+            </div>
+            <div class="card">
+                <div class="card-title">Économies potentielles</div>
+                <div class="card-value">42%</div>
+            </div>
+        </div>
+    </section>
+
+</main>
+
+<!-- FOOTER (repris de index.html) -->
+<footer class="footer">
+    <div class="footer-container">
+        <div class="footer-column">
+            <div class="footer-logo">SubPilot</div>
+            <p class="footer-description">Gérez tous vos abonnements en un seul endroit.</p>
+        </div>
+        <div class="footer-column">
+            <h4>Produit</h4>
+            <ul>
+                <li><a th:href="@{/}">Accueil</a></li>
+                <li><a th:href="@{/features}">Fonctionnalités</a></li>
+            </ul>
+        </div>
+        <div class="footer-column">
+            <h4>Support</h4>
+            <ul>
+                <li><a th:href="@{/}">FAQ</a></li>
+                <li><a th:href="@{/}">Contact</a></li>
+            </ul>
+        </div>
+        <div class="footer-column">
+            <h4>Compte</h4>
+            <ul>
+                <li><a th:href="@{/account}">Mon compte</a></li>
+                <li><a th:href="@{/logout}">Déconnexion</a></li>
+            </ul>
+        </div>
+    </div>
     <div class="footer-bottom">
-        <div class="footer-bottom-left">
-            <p>&copy; 2026 SubPilot. Tous droits réservés.</p>
-        </div>
-        <div class="footer-bottom-right">
-            <a href="/">Politique de confidentialité</a>
-            <span>•</span>
-            <a href="/">Conditions d'utilisation</a>
-            <span>•</span>
-            <a href="/">Mentions légales</a>
-            <span>•</span>
-            <a href="/">Cookies</a>
-        </div>
+        <p>&copy; 2026 SubPilot. Tous droits réservés.</p>
     </div>
 </footer>
 

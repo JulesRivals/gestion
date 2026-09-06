@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="utf-8">
+  <title>Dashboard — PRO</title>
+  <link rel="stylesheet" th:href="@{/css/accueil.css}">
+  <link rel="stylesheet" th:href="@{/css/dashboard.css}">
+</head>
+<body>
+  <div th:replace="fragments/header :: header"></div>
+
+  <main class="site-main">
+    <section class="hero small-hero">
+      <div class="hero-text">
+        <h1 th:text="'Bienvenue, ' + ${nom} + ' (PRO)'">Bienvenue</h1>
+        <p>Analyses avancées, abonnements illimités et exports.</p>
+        <a th:href="@{/subscriptions}" class="btn-primary">Voir mes abonnements</a>
+      </div>
+
+      <div class="hero-right">
+        <div class="hero-stats compact">
+          <div class="stat-item">
+            <span class="stat-icon">📊</span>
+            <div class="stat-info">
+              <strong>PRO</strong>
+              <small>Votre formule</small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="container dashboard-grid">
+      <section class="col-left">
+        <div class="box">
+          <h2>Résumé PRO</h2>
+          <p>Accès aux analyses détaillées et actions avancées.</p>
+          <a th:href="@{/export}" class="btn-secondary">Exporter CSV</a>
+        </div>
+
+        <div class="box">
+          <h2>Analyses récentes</h2>
+          <!-- Placeholder pour un graphique ou un composant JS -->
+          <div style="height:160px; display:flex; align-items:center; justify-content:center; color:#888;">
+            Graphique / Statistiques PRO (à implémenter)
+          </div>
+        </div>
+      </section>
+
+      <aside class="col-right">
+        <div class="box plan-card pro">
+          <h3>Plan PRO</h3>
+          <p>Abonnements illimités et rappels avancés.</p>
+          <a th:href="@{/features}" class="btn-primary">Fonctionnalités PRO</a>
+        </div>
+      </aside>
+    </div>
+  </main>
+
+  <div th:replace="fragments/footer :: footer"></div>
+</body>
+</html>

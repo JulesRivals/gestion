@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <body>
+    <div th:fragment="header">
+      <header class="navbar">
+        <a th:href="@{/}" class="logo">SubPilot</a>
+        <nav>
+          <a th:href="@{/pricing}" class="btn-glow">Tarifs</a>
+          <a th:href="@{/features}" class="btn-glow">Découvrir</a>
+          <a th:href="@{/logout}" class="btn-glow">Déconnexion</a>
+        </nav>
+      </header>
+    </div>
+  </body>
+</html>

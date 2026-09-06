@@ -16,7 +16,7 @@ body {
 .navbar .logo {
     font-weight: bold;
     font-size: 22px;
-    color: #6c5ce7;
+    color: #14532D;
     text-decoration: none;
     cursor: pointer;
     transition: all 0.3s ease;
@@ -35,7 +35,7 @@ body {
 
 /* BUTTON */
 .btn-primary {
-    background: #6c5ce7;
+    background: #16A34A;
     color: white !important;
     padding: 10px 15px;
     border-radius: 6px;
@@ -51,7 +51,7 @@ body {
     display: flex;
     align-items: center;
     padding: 60px;
-    background: linear-gradient(120deg, #6c5ce7, #a29bfe);
+    background: #14532D;
     color: white;
     gap: 40px;
 }
@@ -267,7 +267,7 @@ body {
 
 /* FEATURED PLAN */
 .featured {
-    border: 2px solid #6c5ce7;
+    border: 2px solid #16A34A;
     transform: scale(1.05);
 }
 
@@ -290,14 +290,14 @@ body {
     text-decoration: none;
     transition: all 0.3s ease;
     font-weight: 500;
-    background: linear-gradient(135deg, #6c5ce7, #a29bfe);
+    background: #16A34A;
     color: white;
-    box-shadow: 0 5px 15px rgba(108, 92, 231, 0.4);
+    box-shadow: 0 5px 15px rgba(22, 163, 74, 0.4);
 }
 
 .btn-glow:hover {
     transform: translateY(-2px);
-    box-shadow: 0 10px 25px rgba(108, 92, 231, 0.6);
+    box-shadow: 0 10px 25px rgba(22, 163, 74, 0.4);
 }
 
 .btn-secondary {
@@ -317,7 +317,8 @@ body {
 
 /* FOOTER - PROFESSIONNEL */
 .footer {
-    background: linear-gradient(180deg, #1a1a2e 0%, #16213e 100%);
+    /* un peu plus foncé que précédemment */
+    background: linear-gradient(180deg, #0f1724 0%, #0b1420 100%);
     color: #e0e0e0;
     padding-top: 80px;
     padding-bottom: 0;
@@ -345,7 +346,7 @@ body {
 .footer-logo {
     font-size: 28px;
     font-weight: 800;
-    color: #6c5ce7;
+    color: #16A34A;
     margin-bottom: 15px;
     letter-spacing: 2px;
 }
@@ -381,7 +382,7 @@ body {
 }
 
 .footer-column ul li a:hover {
-    color: #6c5ce7;
+    color: #16A34A;
     transform: translateX(5px);
 }
 
@@ -399,17 +400,17 @@ body {
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    background: rgba(108, 92, 231, 0.15);
-    color: #6c5ce7;
+    background: rgba(22, 163, 74, 0.15);
+    color: #16A34A;
     transition: all 0.3s ease;
-    border: 1px solid rgba(108, 92, 231, 0.3);
+    border: 1px solid rgba(22, 163, 74, 0.3);
 }
 
 .social-links a:hover {
-    background: #6c5ce7;
+    background: #16A34A;
     color: white;
     transform: translateY(-5px);
-    border-color: #6c5ce7;
+    border-color: #16A34A;
 }
 
 .social-links svg {
@@ -426,7 +427,7 @@ body {
 
 .newsletter-form input {
     padding: 12px 15px;
-    border: 1px solid rgba(108, 92, 231, 0.3);
+    border: 1px solid rgba(22, 163, 74, 0.3);
     border-radius: 6px;
     background: rgba(255, 255, 255, 0.05);
     color: white;
@@ -437,8 +438,8 @@ body {
 .newsletter-form input:focus {
     outline: none;
     background: rgba(255, 255, 255, 0.1);
-    border-color: #6c5ce7;
-    box-shadow: 0 0 10px rgba(108, 92, 231, 0.2);
+    border-color: #16A34A;
+    box-shadow: 0 0 10px rgba(22, 163, 74, 0.2);
 }
 
 .newsletter-form input::placeholder {
@@ -447,7 +448,7 @@ body {
 
 .btn-newsletter {
     padding: 12px 20px;
-    background: linear-gradient(135deg, #6c5ce7, #a29bfe);
+    background: linear-gradient(135deg, #16A34A, #9AE6B8);
     color: white;
     border: none;
     border-radius: 6px;
@@ -459,7 +460,7 @@ body {
 
 .btn-newsletter:hover {
     transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(108, 92, 231, 0.4);
+    box-shadow: 0 8px 20px rgba(22, 163, 74, 0.4);
 }
 
 /* FOOTER BOTTOM */
@@ -468,7 +469,7 @@ body {
     justify-content: space-between;
     align-items: center;
     padding: 30px 40px;
-    border-top: 1px solid rgba(108, 92, 231, 0.2);
+    border-top: 1px solid rgba(22, 163, 74, 0.2);
     background: rgba(0, 0, 0, 0.2);
     font-size: 13px;
     color: #808080;
@@ -493,7 +494,7 @@ body {
 }
 
 .footer-bottom-right a:hover {
-    color: #6c5ce7;
+    color: #16A34A;
 }
 
 .footer-bottom-right span {
@@ -563,7 +564,7 @@ body {
 
 /* STATS SECTION */
 .stats-section {
-    background: linear-gradient(135deg, #6c5ce7 0%, #a29bfe 100%);
+    background: linear-gradient(135deg, #16A34A 0%, #9AE6B8 100%);
     color: white;
     padding: 80px 40px;
     text-align: center;
@@ -661,7 +662,7 @@ body {
     border-radius: 12px;
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
     transition: all 0.3s ease;
-    border-left: 4px solid #6c5ce7;
+    border-left: 4px solid #16A34A;
 }
 
 .testimonial-card:hover {
@@ -696,7 +697,7 @@ body {
     width: 50px;
     height: 50px;
     border-radius: 50%;
-    background: linear-gradient(135deg, #6c5ce7, #a29bfe);
+    background: linear-gradient(135deg, #16A34A, #9AE6B8);
     color: white;
     display: flex;
     align-items: center;
@@ -758,8 +759,8 @@ body {
 }
 
 .faq-item:hover {
-    border-color: #6c5ce7;
-    box-shadow: 0 5px 15px rgba(108, 92, 231, 0.1);
+    border-color: #16A34A;
+    box-shadow: 0 5px 15px rgba(22, 163, 74, 0.1);
 }
 
 .faq-button {
@@ -782,7 +783,7 @@ body {
 }
 
 .faq-item.active .faq-button {
-    background: linear-gradient(135deg, #6c5ce7, #a29bfe);
+    background: linear-gradient(135deg, #16A34A, #9AE6B8);
     color: white;
 }
 
@@ -838,19 +839,19 @@ body {
 .btn-cta-large {
     display: inline-block;
     padding: 18px 40px;
-    background: linear-gradient(135deg, #6c5ce7, #a29bfe);
+    background: linear-gradient(135deg, #16A34A, #9AE6B8);
     color: white;
     text-decoration: none;
     border-radius: 8px;
     font-size: 16px;
     font-weight: 700;
     transition: all 0.3s ease;
-    box-shadow: 0 10px 30px rgba(108, 92, 231, 0.3);
+    box-shadow: 0 10px 30px rgba(22, 163, 74, 0.3);
 }
 
 .btn-cta-large:hover {
     transform: translateY(-3px);
-    box-shadow: 0 15px 40px rgba(108, 92, 231, 0.5);
+    box-shadow: 0 15px 40px rgba(22, 163, 74, 0.5);
 }
 
 .trust-text {

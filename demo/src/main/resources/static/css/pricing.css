@@ -1,59 +1,110 @@
+/* Pricing page — harmonized with main theme */
+
+:root {
+  --bg: #f4f6f9;
+  --text: #222;
+  --muted: #666;
+  --card-bg: #ffffff;
+  --primary: #16A34A;
+  --primary-2: #9AE6B8;
+  --primary-dark: #137f36;
+  --shadow: 0 10px 25px rgba(0,0,0,0.08);
+}
+
 body {
-    margin: 0;
-    font-family: 'Segoe UI', sans-serif;
-    background: #f4f6f9;
-    text-align: center;
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  text-align: center;
 }
 
-/* TITRE */
-h1 {
-    margin-top: 60px;
-    font-size: 36px;
+.pricing-hero {
+  padding: 60px 20px 20px;
 }
 
-/* GRID */
+.pricing-hero h1 {
+  margin: 0 auto;
+  max-width: 900px;
+  font-size: 36px;
+}
+
+.pricing-subtitle {
+  color: var(--muted);
+  margin-top: 10px;
+}
+
 .pricing {
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-    margin-top: 50px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  max-width: 1100px;
+  margin: 40px auto 80px;
+  padding: 0 16px;
 }
 
-/* CARD */
 .card {
-    background: white;
-    padding: 30px;
-    border-radius: 12px;
-    width: 260px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-    transition: 0.3s;
+  background: var(--card-bg);
+  padding: 32px;
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  transition: transform .28s ease, box-shadow .28s ease;
+  border: 1px solid rgba(16,24,40,0.04);
+  text-align: left;
 }
 
 .card:hover {
-    transform: translateY(-5px);
+  transform: translateY(-8px);
+  box-shadow: 0 18px 40px rgba(0,0,0,0.12);
 }
 
-/* PLAN POPULAIRE */
-.card:nth-child(2) {
-    border: 2px solid #4facfe;
+.card.popular {
+  border: 2px solid var(--primary);
+  transform: scale(1.03);
 }
 
-/* PRIX */
-.card p {
-    font-size: 24px;
-    margin: 15px 0;
+.card h3 { font-size: 20px; margin: 0 0 8px 0; }
+.card .price { font-size: 28px; font-weight: 800; margin: 10px 0; }
+.card .price small { display:block; color: var(--muted); font-size: 13px; }
+
+.features-list { list-style: none; padding: 0; margin: 18px 0 24px 0; }
+.features-list li { padding: 8px 0; display:flex; gap:12px; align-items:center; color:#333; }
+.features-list li .tick { color: var(--primary); font-weight:700; margin-right:6px; }
+
+.card .cta {
+  display: inline-block;
+  padding: 10px 18px;
+  background: linear-gradient(135deg, var(--primary), var(--primary-2));
+  color: white;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight:700;
 }
 
-/* BUTTON */
-.card a {
-    display: inline-block;
-    padding: 10px 20px;
-    background: #4facfe;
-    color: white;
-    border-radius: 6px;
-    text-decoration: none;
+.card .cta:hover { background: var(--primary-dark); }
+
+.cta-muted {
+  display:inline-block; margin-left:12px; padding:9px 14px; background:#f1f3f5; color:var(--text); border-radius:8px; text-decoration:none;
 }
 
-.card a:hover {
-    background: #3a8de0;
+.badge-popular {
+  display:inline-block; background: var(--primary); color:white; padding:6px 10px; border-radius:999px; font-size:12px; font-weight:700; position:relative; top:-8px; left:0;
 }
+
+/* Responsive */
+@media (max-width: 980px) {
+  .pricing { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 640px) {
+  .pricing-hero h1 { font-size: 26px; }
+  .pricing { grid-template-columns: 1fr; margin: 24px auto 50px; }
+  .card { text-align: left; }
+}
+
+/* Small utilities */
+.muted { color: var(--muted); }
+.center { text-align: center; }
+
+/* Accessibility focus */
+a:focus { outline: 3px solid rgba(22,163,74,0.14); outline-offset: 3px; }

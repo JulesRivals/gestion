@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard — SubPilot</title>
+  <link rel="stylesheet" th:href="@{/css/accueil.css}">
+  <link rel="stylesheet" th:href="@{/css/dashboard.css}">
+  <link rel="stylesheet" th:href="@{/css/dashboard-free.css}">
+  <link rel="stylesheet" th:href="@{/css/free.css}">
+</head>
+<body>
+  <!-- NAVBAR -->
+  <header class="navbar">
+    <a href="/" class="logo">📊 SubPilot</a>
+    <div class="navbar-right">
+      <div class="navbar-user">
+        <span th:text="'Bienvenue, ' + ${nom}">Bienvenue</span>
+        <div class="navbar-avatar" th:text="${nom.charAt(0)}">U</div>
+      </div>
+      <a href="/logout" style="font-size:14px; text-decoration:none; color:#718096;">Déconnexion</a>
+    </div>
+  </header>
+
+  <main class="site-main">
+    <!-- HERO SECTION -->
+    <section class="hero small-hero">
+      <div class="hero-text">
+        <h1 th:text="'Bonjour, ' + ${nom} + ' '">Bonjour</h1>
+        <p>Ton assistant d'épargne — suivi en temps réel de ta situation</p>
+        <a th:href="@{/pricing}" class="btn-primary">Passer à PRO</a>
+      </div>
+
+      <div class="hero-right">
+        <div class="hero-stats compact">
+          <div class="stat-item">
+            <span class="stat-icon">🎯</span>
+            <div class="stat-info">
+              <strong th:text="${objectif != null} ? ${objectif.nom} : 'Aucun objectif'">Objectif</strong>
+              <small th:if="${objectif != null}" th:text="${objectifProgress} + '%'">0%</small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MAIN GRID -->
+    <div class="container dashboard-grid">
+      <!-- LEFT COLUMN -->
+      <section class="col-left">
+        
+        <!-- 1. OBJECTIF D'ÉPARGNE -->
+        <div class="box">
+          <h2>🎯 Objectif d'épargne</h2>
+          
+          <div th:if="${objectif == null}">
+            <div class="empty-state">
+              <div class="empty-state-icon">🎯</div>
+              <p><strong>Aucun objectif défini</strong></p>
+              <p style="font-size:13px; color:#718096; margin:8px 0 16px 0;">Fixez un objectif d'épargne pour rester motivé et suivre vos progrès.</p>
+            </div>
+            <form th:action="@{/objectif/save}" method="post" class="form-inline">
+              <div class="form-group">
+                <label for="obj-nom">Nom de l'objectif</label>
+                <input type="text" id="obj-nom" name="nom" placeholder="Ex: Nouvelle voiture" required />
+              </div>
+              <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px;">
+                <div class="form-group">
+                  <label for="obj-montant">Montant souhaité (€)</label>
+                  <input type="number" id="obj-montant" name="montantSouhaite" step="0.01" placeholder="5000" required />
+                </div>
+                <div class="form-group">
+                  <label for="obj-epargne">Montant épargné (€)</label>
+                  <input type="number" id="obj-epargne" name="montantEpargne" step="0.01" value="0" />
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="obj-date">Date cible</label>
+                <input type="date" id="obj-date" name="dateCible" required />
+              </div>
+              <button class="btn-primary" type="submit">➕ Créer l'objectif</button>
+            </form>
+          </div>
+
+          <div th:if="${objectif != null}">
+            <div class="info-row">
+              <span class="info-label" th:text="${objectif.nom}"></span>
+            </div>
+
+            <!-- Progress Bar -->
+            <div class="progress-container">
+              <div class="progress-bar">
+                <div class="progress-fill" th:style="'width:' + ${objectifProgress} + '%'"></div>
+              </div>
+              <div class="progress-text">
+                <span th:text="${objectifProgress} + '%'"></span>
+                <span th:text="${objectif.montantEpargne} + ' / ' + ${objectif.montantSouhaite} + ' €'"></span>
+              </div>
+            </div>
+
+            <!-- Info -->
+            <div class="info-grid">
+              <div class="info-row">
+                <span class="info-label">Économisé</span>
+                <span class="info-value" th:text="${objectif.montantEpargne} + ' €'"></span>
+              </div>
+              <div class="info-row">
+                <span class="info-label">Il reste</span>
+                <span class="info-value highlight" th:text="${objectifRestant} + ' €'"></span>
+              </div>
+              <div class="info-row">
+                <span class="info-label">À épargner par mois</span>
+                <span class="info-value highlight" th:text="${objectifParMois} + ' €'"></span>
+              </div>
+              <div class="info-row">
+                <span class="info-label">À épargner par semaine</span>
+                <span class="info-value" th:text="${objectifParSemaine} + ' €'"></span>
+              </div>
+            </div>
+
+            <!-- SECTION: Ajouter de l'épargne -->
+            <div style="margin-top:24px; padding-top:24px; border-top:1px solid #e2e8f0;">
+              <h4 style="margin:0 0 12px 0; font-size:14px; color:#1a202c;">➕ Ajouter de l'épargne</h4>
+              <form th:action="@{/epargne/add}" method="post" class="form-inline">
+                <div style="display:grid; grid-template-columns:1fr auto; gap:10px; align-items:flex-end;">
+                  <div class="form-group" style="margin-bottom:0;">
+                    <label for="epargne-montant">Montant (€)</label>
+                    <input type="number" id="epargne-montant" name="montant" step="0.01" placeholder="100" required />
+                  </div>
+                  <button class="btn-primary btn-small" type="submit">Ajouter</button>
+                </div>
+              </form>
+            </div>
+
+            <!-- SECTION: Modifier l'objectif -->
+            <div style="margin-top:16px;">
+              <button class="btn-secondary btn-small" onclick="toggleObjectifForm()" style="width:100%;">Modifier l'objectif</button>
+              <form th:action="@{/objectif/update}" method="post" class="form-inline edit-form" id="edit-objectif-form" style="display:none; margin-top:12px;">
+                <input type="hidden" name="id" th:value="${objectif.id}" />
+                <div class="form-group">
+                  <label for="obj-edit-nom">Nom</label>
+                  <input type="text" id="obj-edit-nom" name="nom" th:value="${objectif.nom}" required />
+                </div>
+                <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px;">
+                  <div class="form-group">
+                    <label for="obj-edit-montant">Montant souhaité (€)</label>
+                    <input type="number" id="obj-edit-montant" name="montantSouhaite" step="0.01" th:value="${objectif.montantSouhaite}" required />
+                  </div>
+                  <div class="form-group">
+                    <label for="obj-edit-date">Date cible</label>
+                    <input type="date" id="obj-edit-date" name="dateCible" th:value="${objectif.dateCible}" required />
+                  </div>
+                </div>
+                <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px;">
+                  <button class="btn-primary btn-small" type="submit">Enregistrer</button>
+                  <button class="btn-secondary btn-small" type="button" onclick="toggleObjectifForm()">Annuler</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2. REVENUS -->
+        <div class="box">
+          <h2>💰 Mes revenus</h2>
+          
+          <div th:if="${revenu == 0 or revenu == null}">
+            <p class="empty-state">Définis ton revenu mensuel pour mieux suivre ton budget.</p>
+            <form th:action="@{/revenu/save}" method="post" class="form-inline">
+              <div class="form-group">
+                <label for="rev-montant">Revenu mensuel (€)</label>
+                <input type="number" id="rev-montant" name="montant" step="0.01" placeholder="2000" required />
+              </div>
+              <button class="btn-primary" type="submit">Enregistrer</button>
+            </form>
+          </div>
+
+          <div th:if="${revenu != 0 and revenu != null}">
+            <div class="info-row">
+              <span class="info-label">Revenu mensuel</span>
+              <span class="info-value highlight" th:text="${revenu} + ' €'"></span>
+            </div>
+            <form th:action="@{/revenu/save}" method="post" class="form-inline" style="margin-top:16px;">
+              <div class="form-group">
+                <label for="rev-edit">Modifier le revenu (€)</label>
+                <input type="number" id="rev-edit" name="montant" step="0.01" th:value="${revenu}" required />
+              </div>
+              <button class="btn-primary btn-small" type="submit">Modifier</button>
+            </form>
+          </div>
+        </div>
+
+        <!-- 3. BUDGET DU MOIS -->
+        <div class="box">
+          <h2>Budget du mois</h2>
+          
+          <div th:if="${budgets.size()} == 0">
+            <p class="empty-state">Aucun budget défini. Ajoute tes premières dépenses.</p>
+          </div>
+
+          <div th:if="${budgets.size()} > 0">
+            <div th:each="b : ${budgets}" class="budget-category">
+              <div class="budget-header">
+                <span class="budget-name" th:text="${b.categorie}"></span>
+                <span class="budget-amount" th:text="${b.montantAlloue} + ' €'"></span>
+              </div>
+              <div class="budget-bar">
+                <div class="budget-fill" th:style="'width: 60%;'"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4. DÉPENSES RÉCENTES -->
+        <div class="box">
+          <h2>📋 Mes dépenses récentes</h2>
+          
+          <div th:if="${recentExpenses.size()} == 0">
+            <div class="empty-state">
+              <div class="empty-state-icon">💳</div>
+              <p><strong>Aucune dépense enregistrée</strong></p>
+              <p style="font-size:13px; color:#718096; margin:8px 0 0 0;">Commencez par ajouter vos premières dépenses pour mieux suivre votre budget.</p>
+            </div>
+          </div>
+
+          <div th:if="${recentExpenses.size()} > 0">
+            <!-- Alert if overspend -->
+            <div th:if="${totalDepensesMois > (revenu != null ? revenu : 0) * 0.8}" class="alert alert-warning">
+              <div class="alert-icon">⚠️</div>
+              <div class="alert-content">
+                <div class="alert-title">Attention aux dépenses</div>
+                <div class="alert-text">Vous avez déjà dépensé <strong th:text="${#numbers.formatInteger(totalDepensesMois, 0)} + ' €'"></strong> ce mois. Vérifiez votre budget!</div>
+              </div>
+            </div>
+
+            <div th:each="d : ${recentExpenses}" class="expense-item">
+              <div class="expense-left">
+                <div class="expense-desc" th:text="${d.description != null and d.description != ''} ? ${d.description} : 'Dépense'"></div>
+                <div class="expense-meta">
+                  <span class="expense-cat" th:text="${d.categorie}"></span>
+                  <span th:text="${d.date}"></span>
+                </div>
+              </div>
+              <div class="expense-amount" th:text="${d.montant} + ' €'"></div>
+              <div class="expense-actions">
+                <form th:action="@{/depense/delete}" method="post" style="margin:0; display:inline;">
+                  <input type="hidden" name="id" th:value="${d.id}" />
+                  <button type="submit" class="btn-danger btn-small" onclick="return confirm('Supprimer cette dépense?')">🗑️</button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </section>
+
+      <!-- RIGHT SIDEBAR -->
+      <aside class="col-right">
+        
+        <!-- ASSISTANT BOX -->
+        <div class="box plan-card free">
+          <h3>Assistant</h3>
+          <div class="assistant-box">
+            <div th:each="msg : ${assistantMessages}" class="assistant-msg" th:text="${msg}"></div>
+          </div>
+          
+          <div style="margin-top:20px; padding-top:20px; border-top:1px solid #e2e8f0;">
+            <p style="font-size:13px; color:#718096; margin:0; line-height:1.6;">
+              💡 Conseil : Épargne d'abord, puis dépense. C'est le secret pour atteindre tes objectifs.
+            </p>
+          </div>
+        </div>
+
+        <!-- QUICK ADD EXPENSE -->
+        <div class="box">
+          <h3>Ajouter une dépense</h3>
+          <form th:action="@{/depense/add}" method="post" class="form-inline">
+            <div class="form-group">
+              <label for="exp-montant">Montant (€)</label>
+              <input type="number" id="exp-montant" name="montant" step="0.01" placeholder="35.50" required />
+            </div>
+            <div class="form-group">
+              <label for="exp-cat">Catégorie</label>
+              <select id="exp-cat" name="categorie" required>
+                <option>Logement</option>
+                <option>Alimentation</option>
+                <option>Transport</option>
+                <option>Loisirs</option>
+                <option>Shopping</option>
+                <option>Santé</option>
+                <option>Autres</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="exp-desc">Description</label>
+              <input type="text" id="exp-desc" name="description" placeholder="Ex: Restaurant" />
+            </div>
+            <div class="form-group">
+              <label for="exp-date">Date</label>
+              <input type="date" id="exp-date" name="date" required />
+            </div>
+            <button class="btn-primary" type="submit" style="width:100%;">➕ Ajouter</button>
+          </form>
+        </div>
+
+      </aside>
+
+    </div>
+
+  </main>
+
+  <div th:replace="fragments/footer :: footer"></div>
+
+  <script>
+    function toggleObjectifForm() {
+      const form = document.getElementById('edit-objectif-form');
+      if (form) {
+        form.style.display = form.style.display === 'none' ? 'grid' : 'none';
+      }
+    }
+  </script>
+</body>
+</html>

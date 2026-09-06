@@ -1,0 +1,47 @@
+/* Free version overrides */
+
+:root {
+  --free-accent: #11a44b; /* slightly brighter */
+  --free-muted: #556b5a;
+}
+
+/* Make primary elements slightly softer for the free tier */
+.btn-primary, .btn-glow, .card.popular, .badge-popular {
+  background: linear-gradient(135deg, var(--free-accent), #7fe5a0) !important;
+  border-color: var(--free-accent) !important;
+  color: white !important;
+}
+
+/* Free hero highlight */
+.small-hero {
+  background: linear-gradient(135deg, var(--free-accent), #c6f6dd);
+}
+
+/* Free badge */
+.plan-card.free {
+  border-left: 5px solid var(--free-accent) !important;
+}
+
+/* Subtle disabled look for unavailable features in free */
+.plan-card.free .unavailable, .features-list.free .unavailable {
+  color: #999;
+  opacity: 0.7;
+}
+
+/* CTA on free pages: upgrade button more visible */
+.btn-primary.upgrade {
+  background: #16A34A !important;
+  box-shadow: 0 10px 30px rgba(22,163,74,0.2) !important;
+}
+
+/* Slightly reduce shadows to emphasize "lightweight" */
+.box, .card {
+  box-shadow: 0 6px 18px rgba(0,0,0,0.06) !important;
+}
+
+/* Footer tweak to show free tier small note */
+.footer .footer-description::after {
+  content: " — Version gratuite";
+  color: var(--free-muted);
+  font-weight: 600;
+}

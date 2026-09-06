@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="utf-8">
+  <title>Dashboard — BUSINESS</title>
+  <link rel="stylesheet" th:href="@{/css/accueil.css}">
+  <link rel="stylesheet" th:href="@{/css/dashboard.css}">
+</head>
+<body>
+  <div th:replace="fragments/header :: header"></div>
+
+  <main class="site-main">
+    <section class="hero small-hero">
+      <div class="hero-text">
+        <h1 th:text="'Bienvenue, ' + ${nom} + ' (BUSINESS)'">Bienvenue</h1>
+        <p>Gestion multi-comptes, intégrations API et rapports personnalisés.</p>
+        <a th:href="@{/account}" class="btn-primary">Paramètres entreprise</a>
+      </div>
+
+      <div class="hero-right">
+        <div class="hero-stats compact">
+          <div class="stat-item">
+            <span class="stat-icon">🚀</span>
+            <div class="stat-info">
+              <strong>BUSINESS</strong>
+              <small>Votre formule</small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="container dashboard-grid">
+      <section class="col-left">
+        <div class="box">
+          <h2>Admin / Multi-comptes</h2>
+          <p>Outils et intégrations pour gérer vos équipes et comptes.</p>
+          <a th:href="@{/integrations}" class="btn-secondary">Gérer les intégrations</a>
+        </div>
+
+        <div class="box">
+          <h2>Rapports personnalisés</h2>
+          <p>Accès aux exports avancés et rapports planifiés.</p>
+        </div>
+      </section>
+
+      <aside class="col-right">
+        <div class="box plan-card business">
+          <h3>Plan BUSINESS</h3>
+          <p>Intégrations, support prioritaire et gestion entreprise.</p>
+          <a th:href="@{/contact-sales}" class="btn-primary">Contacter les ventes</a>
+        </div>
+      </aside>
+    </div>
+  </main>
+
+  <div th:replace="fragments/footer :: footer"></div>
+</body>
+</html>
