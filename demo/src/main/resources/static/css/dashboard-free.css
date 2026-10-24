@@ -26,8 +26,8 @@
 body {
   margin: 0;
   padding: 0;
-  background: var(--bg);
-  color: var(--text);
+  background: #0b1420;
+  color: #333;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
@@ -35,26 +35,40 @@ body {
 
 /* HEADER / NAVBAR */
 .navbar {
-  background: var(--card-bg);
-  border-bottom: 1px solid var(--border);
-  padding: 16px 20px;
-  box-shadow: var(--shadow-sm);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  position: sticky;
-  top: 0;
-  z-index: 100;
-}
+	    display: flex;
+	    justify-content: space-between;
+	    padding: 20px;
+	    background: #1b1b1b ;
+	    align-items: center;
+	}
 
 .navbar .logo {
-  font-size: 20px;
-  font-weight: 800;
-  color: var(--primary);
-  text-decoration: none;
-  display: flex;
-  align-items: center;
-  gap: 8px;
+	    font-size: 24px;
+	    font-weight: 800;
+	    color: var(--primary);
+	    letter-spacing: 2px;
+	    text-decoration: none;
+	    cursor: pointer;
+	    transition: all 0.3s ease;
+	}
+	
+	.navbar .ulogo {
+		    font-size: 24px;
+		    font-weight: 800;
+		    color: var(--primary);
+		    letter-spacing: 2px;
+		    text-decoration: none;
+		    cursor: pointer;
+		    transition: all 0.3s ease;
+		}
+		
+		.navbar .ulogo:hover {
+		   color: white;
+		}
+
+.navbar .logo-minimal:hover { 
+	opacity: 0.8; 
+	transform: scale(1.05); 
 }
 
 .navbar-right {
@@ -68,7 +82,28 @@ body {
   align-items: center;
   gap: 10px;
   font-size: 14px;
+  color: white;
 }
+
+.btn-glow-nav {
+    display: inline-block;
+    padding: 12px 22px;
+    font-size: 14px;
+	border: 2px solid white;
+    border-radius: 25px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    background: #1b1b1b;
+    color: white;
+	}
+    
+
+.btn-glow-nav:hover {
+    transform: translateY(-2px);
+	text-decoration: underline
+}
+
 
 .navbar-avatar {
   width: 32px;
@@ -92,7 +127,7 @@ body {
 
 /* HERO SECTION */
 .small-hero {
-  background: linear-gradient(135deg, var(--primary), var(--primary-2));
+  background: 	#9AE6B8;
   color: white;
   padding: 48px;
   border-radius: 16px;
@@ -245,7 +280,7 @@ body {
   margin: 0 0 12px 0;
   font-size: 14px;
   font-weight: 600;
-  color: var(--muted);
+  color: white;
   text-transform: uppercase;
   letter-spacing: 0.5px;
 }
@@ -312,7 +347,7 @@ body {
 }
 
 .info-value {
-  color: var(--text);
+  color: #718096;
   font-weight: 700;
   font-size: 15px;
 }
@@ -435,7 +470,6 @@ select:focus {
 
 .btn-danger:hover {
   background: #fecaca;
-  transform: scale(1.05);
 }
 
 .btn-small {
@@ -455,7 +489,7 @@ select:focus {
   justify-content: space-between;
   align-items: center;
   padding: 16px;
-  background: #fafbfc;
+  background: linear-gradient(135deg, rgba(22, 163, 74, 0.08), rgba(154, 230, 184, 0.08));
   border-radius: 10px;
   border: 1px solid var(--border);
   margin-bottom: 10px;
@@ -463,9 +497,8 @@ select:focus {
 }
 
 .expense-item:hover {
-  background: #f0f4f8;
+  background: linear-gradient(135deg, rgba(22, 163, 74, 0.08), rgba(154, 230, 184, 0.08));
   border-color: var(--primary-light);
-  transform: translateX(4px);
 }
 
 .expense-left {
@@ -473,7 +506,7 @@ select:focus {
 }
 
 .expense-desc {
-  color: var(--text);
+  color: white !important;
   font-weight: 600;
   font-size: 15px;
   margin-bottom: 4px;
@@ -498,7 +531,7 @@ select:focus {
 
 .expense-amount {
   font-weight: 700;
-  color: var(--text);
+  color: white !important;
   min-width: 70px;
   text-align: right;
   font-size: 15px;
@@ -627,10 +660,11 @@ select:focus {
 /* ASSISTANT BOX */
 .assistant-box {
   background: linear-gradient(135deg, rgba(22, 163, 74, 0.08), rgba(154, 230, 184, 0.08));
-  border-left: 4px solid var(--primary);
+  border: 1px solid #16A34A;
   padding: 20px;
   border-radius: 10px;
   margin-bottom: 16px;
+  color: white;
 }
 
 .assistant-msg {
@@ -659,6 +693,7 @@ select:focus {
 .plan-card.free {
   border: 2px solid var(--primary);
   background: linear-gradient(135deg, rgba(22, 163, 74, 0.03), rgba(154, 230, 184, 0.03));
+  color: white;
 }
 
 /* EMPTY STATE */
@@ -667,7 +702,7 @@ select:focus {
   padding: 40px 20px;
   color: var(--muted);
   border-radius: 10px;
-  background: #fafbfc;
+  background: #0F2027;
 }
 
 .empty-state-icon {
@@ -822,8 +857,24 @@ select:focus {
 }
 
 /* HERO SECTION */
+
+.objectif-ligne {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.objectif-ligne strong {
+    font-size: 18px;
+	text-transform: capitalize;
+}
+
+.objectif-ligne small {
+    font-size: 16px;
+}
 .small-hero {
-  background: linear-gradient(135deg, var(--primary), var(--primary-2));
+  background: #16A34A;
   color: white;
   padding: 40px;
   border-radius: 16px;
@@ -896,13 +947,14 @@ select:focus {
   margin: 0 0 20px 0;
   font-size: 18px;
   font-weight: 700;
-  color: var(--text);
+  color: white;
 }
 
 .box h3 {
   margin: 0 0 16px 0;
   font-size: 16px;
   font-weight: 700;
+  color: white;
 }
 
 /* PROGRESS BAR */
@@ -956,7 +1008,7 @@ select:focus {
 }
 
 .info-value {
-  color: var(--text);
+  color:#718096;
   font-weight: 700;
 }
 
@@ -1019,6 +1071,24 @@ select:focus {
   transform: translateY(0);
 }
 
+.btn-create {
+  display: inline-block !important;
+  width: auto !important;
+  padding: 8px 16px;
+  font-size: 14px;
+  border-radius: 6px;
+  background-color: #2ecc71;
+  color: white;
+  cursor: pointer;
+  transition: all 0.5s ease;
+}
+
+.btn-create:hover {
+  background-color: #27ae60;   /* vert plus foncé */
+  transform: scale(1.05);      /* léger zoom pro */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25); /* effet premium */
+}
+
 .btn-secondary {
   display: inline-block;
   background: #f1f3f5;
@@ -1064,7 +1134,7 @@ select:focus {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 12px 0;
+  padding: 16px ;
   border-bottom: 1px solid var(--border);
   font-size: 14px;
 }
@@ -1142,10 +1212,11 @@ select:focus {
 /* ASSISTANT MESSAGES */
 .assistant-box {
   background: linear-gradient(135deg, rgba(22,163,74,0.08), rgba(154,230,184,0.08));
-  border-left: 4px solid var(--primary);
+  border: 1px solid #16A34A;
   padding: 16px;
   border-radius: 8px;
   margin-bottom: 16px;
+  color: white;
 }
 
 .assistant-msg {
@@ -1155,8 +1226,14 @@ select:focus {
   line-height: 1.5;
 }
 
-.assistant-msg:first-child { margin-top: 0; }
-.assistant-msg:last-child { margin-bottom: 0; }
+.assistant-msg:first-child { 
+	margin-top: 0;
+	color: white;
+ }
+.assistant-msg:last-child { 
+	margin-bottom: 0;
+	color: white; 
+}
 
 /* PLAN CARD */
 .plan-card.free {
@@ -1197,7 +1274,7 @@ select:focus {
   margin-bottom: 6px;
   font-weight: 600;
   font-size: 14px;
-  color: var(--text);
+  color: white;
 }
 
 /* EMPTY STATE */
@@ -1236,6 +1313,8 @@ select:focus {
   .box {
     padding: 20px;
     margin-bottom: 16px;
+	background: 
+	color: #16A34A;
   }
 
   .small-hero {
@@ -1302,6 +1381,7 @@ select:focus {
 
   .box h2 {
     font-size: 16px;
+	color: white;
   }
 
   .progress-text {

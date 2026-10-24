@@ -1,7 +1,7 @@
 /* Free version overrides */
 
 :root {
-  --free-accent: #11a44b; /* slightly brighter */
+  --free-accent: #16A34A /* slightly brighter */
   --free-muted: #556b5a;
 }
 
@@ -14,12 +14,13 @@
 
 /* Free hero highlight */
 .small-hero {
-  background: linear-gradient(135deg, var(--free-accent), #c6f6dd);
+  background:#16A34A
 }
 
 /* Free badge */
 .plan-card.free {
-  border-left: 5px solid var(--free-accent) !important;
+  border: 1px solid #16A34A;
+  color: white;
 }
 
 /* Subtle disabled look for unavailable features in free */
@@ -37,6 +38,8 @@
 /* Slightly reduce shadows to emphasize "lightweight" */
 .box, .card {
   box-shadow: 0 6px 18px rgba(0,0,0,0.06) !important;
+  background: #0b1420;
+  color: #16A34A;
 }
 
 /* Footer tweak to show free tier small note */

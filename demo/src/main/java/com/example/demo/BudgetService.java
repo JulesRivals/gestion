@@ -8,11 +8,19 @@ import java.util.List;
 public class BudgetService {
     private final BudgetDAO dao;
 
-    public BudgetService(BudgetDAO dao) { this.dao = dao; }
+    public BudgetService(BudgetDAO dao) { 
+    	this.dao = dao; 
+    	}
 
-    public List<Budget> listForUser(int userId) { return dao.findByUserId(userId); }
+    public List<Budget> listForUser(int userId) {
+    	return dao.findByUserId(userId); 
+    	}
 
-    public void save(Budget b) { dao.save(b); }
+    public void save(Budget b) { 
+    	dao.save(b); 
+    	}
 
-    public void update(Budget b) { dao.update(b); }
+    public void update(Budget b) {
+    	dao.update(b); 
+    	}
 }

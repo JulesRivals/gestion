@@ -1,7 +1,7 @@
 body {
     margin: 0;
-    font-family: Arial, sans-serif;
-    background: #f8f9fc;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+    background: #0b1420;
 }
 
 /* NAVBAR */
@@ -9,7 +9,7 @@ body {
     display: flex;
     justify-content: space-between;
     padding: 20px;
-    background: white;
+    background: #1b1b1b ;
     align-items: center;
 }
 
@@ -22,6 +22,20 @@ body {
     transition: all 0.3s ease;
 }
 
+.navbar .ulogo {
+	    font-size: 24px;
+	    font-weight: 800;
+	    color: green;
+	    letter-spacing: 2px;
+	    text-decoration: none;
+	    cursor: pointer;
+	    
+	}
+	
+	.navbar .ulogo:hover {
+	    color: white;
+	}
+
 .navbar .logo:hover {
     opacity: 0.8;
     transform: scale(1.05);
@@ -30,15 +44,61 @@ body {
 .navbar a {
     margin-left: 20px;
     text-decoration: none;
-    color: #333;
+    color: white;
 }
 
+
+.btn-glow-nav {
+    display: inline-block;
+    padding: 12px 22px;
+    font-size: 14px;
+	border: 2px solid white;
+    border-radius: 20px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    background: #1b1b1b;
+    color: white;
+	}
+    
+
+.btn-glow-nav:hover {
+    transform: translateY(-2px);
+	text-decoration: underline
+}
+
+.menu-nav {
+    display: inline-block;
+    padding: 12px 22px;
+    font-size: 24px;
+    border-radius: 20px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    background: #1b1b1b;
+    color: white;
+	}
+    
+ 
+.menu-nav:hover {
+    font-size: 24px;
+	color: purple;
+}
 /* BUTTON */
 .btn-primary {
     background: #16A34A;
     color: white !important;
     padding: 10px 15px;
     border-radius: 6px;
+	text-decoration: none;
+}
+
+.btn-primary:hover {
+    background: #16A34A;
+    color: white !important;
+    padding: 10px 15px;
+    border-radius: 6px;
+	text-decoration: underline;
 }
 
 .btn-primary.big {
@@ -51,7 +111,14 @@ body {
     display: flex;
     align-items: center;
     padding: 60px;
-    background: #14532D;
+    background:
+		   linear-gradient(
+	       to bottom,
+	       #020204 0%,
+	       #05060c 40%,
+	       #080c15 70%,
+	       #0b1420 100%
+	   );
     color: white;
     gap: 40px;
 }
@@ -145,6 +212,19 @@ body {
     transform: translateX(5px);
 }
 
+.stats-frame {
+    background-color: #071321;
+    padding: 35px;
+    margin: 30px;
+    border-radius: 25px;
+}
+
+.stats-section {
+    background: linear-gradient(120deg, #16a34a, #7bdcb5);
+    border-radius: 18px;
+    padding: 80px 50px;
+}
+
 .stat-icon {
     font-size: 32px;
     display: flex;
@@ -212,11 +292,12 @@ body {
 .pricing {
     padding: 80px 20px;
     text-align: center;
-    background: #f8f9fc;
+    background: #0b1420;
 }
 
 .pricing h2 {
     font-size: 32px;
+	color: white;
 }
 
 .subtitle {
@@ -286,18 +367,19 @@ body {
     display: inline-block;
     padding: 12px 22px;
     font-size: 14px;
-    border-radius: 8px;
+    border-radius: 20px;
+	border-color: white;
     text-decoration: none;
     transition: all 0.3s ease;
     font-weight: 500;
-    background: #16A34A;
+    background: #0b1420;
     color: white;
-    box-shadow: 0 5px 15px rgba(22, 163, 74, 0.4);
-}
+	}
+    
 
 .btn-glow:hover {
     transform: translateY(-2px);
-    box-shadow: 0 10px 25px rgba(22, 163, 74, 0.4);
+	text-decoration: underline
 }
 
 .btn-secondary {
@@ -409,7 +491,6 @@ body {
 .social-links a:hover {
     background: #16A34A;
     color: white;
-    transform: translateY(-5px);
     border-color: #16A34A;
 }
 
@@ -629,7 +710,8 @@ body {
 /* TESTIMONIALS SECTION */
 .testimonials {
     padding: 80px 40px;
-    background: #f8f9fc;
+    background: #0b1420;
+	color:	 white;
 }
 
 .testimonials-header {
@@ -639,13 +721,11 @@ body {
 
 .testimonials-header h2 {
     font-size: 36px;
-    color: #333;
     margin-bottom: 10px;
 }
 
 .testimonials-header p {
     font-size: 16px;
-    color: #666;
 }
 
 .testimonials-grid {
@@ -814,7 +894,7 @@ body {
 
 /* FINAL CTA */
 .final-cta {
-    background: linear-gradient(135deg, #2d3436 0%, #000 100%);
+    background: #0b1420;
     color: white;
     padding: 80px 40px;
     text-align: center;

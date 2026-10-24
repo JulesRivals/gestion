@@ -12,16 +12,17 @@
 <!-- NAVBAR -->
 <header class="navbar">
     <a th:href="@{/}" class="logo">SubPilot</a>
+	
     <nav>
+		<a th:href="@{/}" class="ulogo">test</a>
+		<a th:href="@{/login}" class="menu-nav" aria-label="les tarifs ">Nos tarifs</a>
 		<!-- Bouton principal -->
-		<a th:href="@{/login}" class="btn-glow" aria-label="Se connecter">Se connecter</a>
+		<a th:href="@{/login}" class="btn-glow-nav" aria-label="Se connecter">Se connecter</a>
 
 		<!-- Bouton secondaire -->
-		<a href="#pricing-section" class="btn-glow" aria-label="Voir les tarifs">Tarifs</a>
+		<a href="@{/register}" class="btn-glow-nav" aria-label="Voir les tarifs">S'inscrire</a>
 
-		<!-- Bouton outline -->
-		<a th:href="@{/features}" class="btn-glow" aria-label="Découvrir les fonctionnalités">Découvrir</a>
-        <a th:href="@{/register}" class="btn-glow" aria-label="S'inscrire">S'inscrire</a>
+		
     </nav>
 </header>
 
@@ -35,37 +36,7 @@
 
     <div class="hero-right">
         <div class="hero-visual">
-            <!-- LOGOS DE PARTENAIRES -->
-            <div class="brands-section">
-                <p class="brands-title">Gérez vos abonnements auprès de :</p>
-                <div class="brands-grid">
-                    <div class="brand-logo">Netflix</div>
-                    <div class="brand-logo">Spotify</div>
-                    <div class="brand-logo">Amazon</div>
-                    <div class="brand-logo">Apple</div>
-                    <div class="brand-logo">Adobe</div>
-                    <div class="brand-logo">Google</div>
-                </div>
-            </div>
-
-            <!-- ILLUSTRATION / STATISTIQUES -->
-            <div class="hero-stats">
-                <div class="stat-item">
-                    <span class="stat-icon">💰</span>
-                    <div class="stat-info">
-                        <strong>156€/mois</strong>
-                        <small>économisés en moyenne</small>
-                    </div>
-                </div>
-                <div class="stat-item">
-                    <span class="stat-icon">⏱️</span>
-                    <div class="stat-info">
-                        <strong>5 min</strong>
-                        <small>pour commencer</small>
-                    </div>
-                </div>
-            </div>
-        </div>
+            
     </div>
 </section>
 
@@ -81,11 +52,11 @@
             <h3>Gratuit</h3>
 
             <ul>
-                <li>✔️ Objectif d'épargne</li>
-                <li>✔️ Budget mensuel</li>
-                <li>✔️ Gestion des dépenses</li>
-                <li>❌ Résiliation rapide</li>
-                <li>❌ Insights avancés</li>
+                <li> Objectif d'épargne</li>
+                <li> Budget mensuel</li>
+                <li> Gestion des dépenses</li>
+                <li><s> Résiliation rapide</s></li>
+                <li><s> Insights avancés</s></li>
             </ul>
 
             <a th:href="@{/register}" class="btn-primary" aria-label="Essayer le plan Basic gratuitement">Choisir cet abonnement</a>
@@ -96,33 +67,33 @@
             <div class="badge">Le plus populaire</div>
 
             <h3>Pro</h3>
-            <p class="price">12,99€ <span>/mois</span></p>
+            
 
             <ul>
-                <li>✔️ Abonnements illimités</li>
-                <li>✔️ Détection automatique email</li>
-                <li>✔️ Alertes intelligentes</li>
-                <li>✔️ Résiliation rapide</li>
-                <li>✔️ Optimisation des dépenses</li>
+                <li> Abonnements illimités</li>
+                <li> Détection automatique email</li>
+                <li> Alertes intelligentes</li>
+                <li> Résiliation rapide</li>
+                <li> Optimisation des dépenses</li>
             </ul>
 
-            <a th:href="@{/register}" class="btn-primary" aria-label="Essayer le plan Pro gratuitement">Choisir cet abonnement</a>
+            <a th:href="@{/register}" class="btn-primary" aria-label="Essayer le plan Pro gratuitement">12,99€ / mois </a>
         </div>
 
         <!-- PREMIUM -->
         <div class="card featured">
             <h3>Premium</h3>
-            <p class="price">19,99€ <span>/mois</span></p>
+  
 
             <ul>
-                <li>✔️ Tout Pro inclus</li>
-                <li>✔️ Analyse avancée des dépenses</li>
-                <li>✔️ Notifications personnalisées</li>
-                <li>✔️ Priorité support</li>
-                <li>✔️ Futures automatisations</li>
+                <li> Tout Pro inclus</li>
+                <li> Analyse avancée des dépenses</li>
+                <li> Notifications personnalisées</li>
+                <li> Priorité support</li>
+                <li> Futures automatisations</li>
             </ul>
 
-            <a th:href="@{/register}" class="btn-secondary" aria-label="Passer Premium">Passer Premium</a>
+            <a th:href="@{/register}" class="btn-primary" aria-label="Passer Premium">19,99€ / mois</a>
         </div>
 
     </div>
@@ -131,7 +102,8 @@
 
 
 <!-- STATS SECTION -->
-<section class="stats-section">
+<div class="stats-frame">
+    <section class="stats-section">
     <div class="stats-header">
         <h2>Rejoignez des milliers d'utilisateurs satisfaits</h2>
         <p>SubPilot aide déjà des clients à économiser des milliers d'euros chaque année</p>
@@ -162,6 +134,7 @@
             <p>Basé sur 5000+ avis vérifiés</p>
         </div>
     </div>
+	</div>
 </section>
 
 <!-- TESTIMONIALS SECTION -->

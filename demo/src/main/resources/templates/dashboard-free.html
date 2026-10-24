@@ -12,13 +12,13 @@
 <body>
   <!-- NAVBAR -->
   <header class="navbar">
-    <a href="/" class="logo">📊 SubPilot</a>
+    <a href="/" class="logo">SubPilot</a>
     <div class="navbar-right">
       <div class="navbar-user">
         <span th:text="'Bienvenue, ' + ${nom}">Bienvenue</span>
         <div class="navbar-avatar" th:text="${nom.charAt(0)}">U</div>
       </div>
-      <a href="/logout" style="font-size:14px; text-decoration:none; color:#718096;">Déconnexion</a>
+      <a href="/logout" class="btn-glow-nav" >Déconnexion</a>
     </div>
   </header>
 
@@ -34,10 +34,17 @@
       <div class="hero-right">
         <div class="hero-stats compact">
           <div class="stat-item">
-            <span class="stat-icon">🎯</span>
             <div class="stat-info">
-              <strong th:text="${objectif != null} ? ${objectif.nom} : 'Aucun objectif'">Objectif</strong>
-              <small th:if="${objectif != null}" th:text="${objectifProgress} + '%'">0%</small>
+				<div class="objectif-ligne">
+				    <strong th:text="${objectif != null ? objectif.nom : 'Aucun objectif'}">
+				        Objectif
+				    </strong>
+
+				    <small th:if="${objectif != null}"
+				           th:text="${objectifProgress} + '%'">
+				        0%
+				    </small>
+				</div>
             </div>
           </div>
         </div>
@@ -51,17 +58,17 @@
         
         <!-- 1. OBJECTIF D'ÉPARGNE -->
         <div class="box">
-          <h2>🎯 Objectif d'épargne</h2>
+          <h1>Objectif d'épargne</h1>
           
           <div th:if="${objectif == null}">
             <div class="empty-state">
-              <div class="empty-state-icon">🎯</div>
+              <div class="empty-state-icon">SUBPILOT</div>
               <p><strong>Aucun objectif défini</strong></p>
               <p style="font-size:13px; color:#718096; margin:8px 0 16px 0;">Fixez un objectif d'épargne pour rester motivé et suivre vos progrès.</p>
             </div>
             <form th:action="@{/objectif/save}" method="post" class="form-inline">
               <div class="form-group">
-                <label for="obj-nom">Nom de l'objectif</label>
+                <label for="obj-nom">Votre objectif (ex. : “Voyage au Japon”)</label>
                 <input type="text" id="obj-nom" name="nom" placeholder="Ex: Nouvelle voiture" required />
               </div>
               <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px;">
@@ -78,7 +85,7 @@
                 <label for="obj-date">Date cible</label>
                 <input type="date" id="obj-date" name="dateCible" required />
               </div>
-              <button class="btn-primary" type="submit">➕ Créer l'objectif</button>
+              <button class="btn-create" type="submit">Créer mon objectif épargne</button>
             </form>
           </div>
 
@@ -134,7 +141,7 @@
 
             <!-- SECTION: Modifier l'objectif -->
             <div style="margin-top:16px;">
-              <button class="btn-secondary btn-small" onclick="toggleObjectifForm()" style="width:100%;">Modifier l'objectif</button>
+              <button class="btn-primary btn-small" onclick="toggleObjectifForm()" style="width:100%;">Modifier l'objectif</button>
               <form th:action="@{/objectif/update}" method="post" class="form-inline edit-form" id="edit-objectif-form" style="display:none; margin-top:12px;">
                 <input type="hidden" name="id" th:value="${objectif.id}" />
                 <div class="form-group">
@@ -162,7 +169,7 @@
 
         <!-- 2. REVENUS -->
         <div class="box">
-          <h2>💰 Mes revenus</h2>
+          <h2>Mes revenus</h2>
           
           <div th:if="${revenu == 0 or revenu == null}">
             <p class="empty-state">Définis ton revenu mensuel pour mieux suivre ton budget.</p>
@@ -195,7 +202,8 @@
           <h2>Budget du mois</h2>
           
           <div th:if="${budgets.size()} == 0">
-            <p class="empty-state">Aucun budget défini. Ajoute tes premières dépenses.</p>
+            <p class="empty-state">			Aucun budget défini.<br>
+			  Saisis tes prévisions de dépenses pour le mois.</p>
           </div>
 
           <div th:if="${budgets.size()} > 0">
@@ -213,7 +221,7 @@
 
         <!-- 4. DÉPENSES RÉCENTES -->
         <div class="box">
-          <h2>📋 Mes dépenses récentes</h2>
+          <h2>Mes dépenses récentes</h2>
           
           <div th:if="${recentExpenses.size()} == 0">
             <div class="empty-state">
@@ -245,7 +253,8 @@
               <div class="expense-actions">
                 <form th:action="@{/depense/delete}" method="post" style="margin:0; display:inline;">
                   <input type="hidden" name="id" th:value="${d.id}" />
-                  <button type="submit" class="btn-danger btn-small" onclick="return confirm('Supprimer cette dépense?')">🗑️</button>
+                  <button type="submit" class="btn-danger btn-small" onclick="return confirm('Supprimer cette dépense?')">Supprimer</button>
+				  
                 </form>
               </div>
             </div>
@@ -266,7 +275,7 @@
           
           <div style="margin-top:20px; padding-top:20px; border-top:1px solid #e2e8f0;">
             <p style="font-size:13px; color:#718096; margin:0; line-height:1.6;">
-              💡 Conseil : Épargne d'abord, puis dépense. C'est le secret pour atteindre tes objectifs.
+               Conseil : Épargne d'abord, puis dépense. C'est le secret pour atteindre tes objectifs.
             </p>
           </div>
         </div>
@@ -299,7 +308,7 @@
               <label for="exp-date">Date</label>
               <input type="date" id="exp-date" name="date" required />
             </div>
-            <button class="btn-primary" type="submit" style="width:100%;">➕ Ajouter</button>
+            <button class="btn-primary" type="submit" style="width:100%;">Ajouter</button>
           </form>
         </div>
 
